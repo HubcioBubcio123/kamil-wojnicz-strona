@@ -1,0 +1,54 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+/* Generic image + text split section, distinct from the hero component.
+   Reusable anywhere a page needs one supporting image next to prose. */
+.split {
+  padding-block: $space-2xl;
+  background: var(--color-bg-alt);
+}
+
+.split__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  column-gap: $space-xl;
+}
+
+.split__media img {
+  width: 100%;
+  height: auto;
+  border-radius: $radius;
+  object-fit: cover;
+  aspect-ratio: 4 / 5;
+}
+
+.split__title {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.split__text {
+  margin-top: $space-md;
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+/* Compact variant: text leads, photo is a smaller supporting accent, not a full 50/50 split. */
+.split--compact .split__grid {
+  grid-template-columns: 1.6fr 1fr;
+}
+
+.split--compact .split__media img {
+  aspect-ratio: 1 / 1;
+}
+
+@include respond(md) {
+  .split__grid,
+  .split--compact .split__grid {
+    grid-template-columns: 1fr;
+    row-gap: $space-lg;
+  }
+}

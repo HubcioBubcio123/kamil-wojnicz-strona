@@ -1,0 +1,82 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.gallery {
+  padding-block: $space-2xl;
+}
+
+.gallery__header {
+  max-width: 42ch;
+  margin-bottom: $space-xl;
+}
+
+.gallery__title {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.gallery__intro {
+  margin-top: $space-sm;
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+  max-width: 60ch;
+}
+
+.gallery img {
+  width: 100%;
+  height: 100%;
+  border-radius: $radius;
+  object-fit: cover;
+  display: block;
+}
+
+// Default grid: N photos, evenly spaced, middle tile taller for rhythm.
+.gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $space-md;
+}
+
+.gallery__grid img {
+  aspect-ratio: 3 / 4;
+}
+
+.gallery__grid > :nth-child(2) img {
+  aspect-ratio: 3 / 5;
+}
+
+// Two-photo variant: one larger, one smaller.
+.gallery__grid--pair {
+  grid-template-columns: 1.2fr 1fr;
+}
+
+.gallery__grid--pair img {
+  aspect-ratio: 4 / 5;
+}
+
+// Horizontal scroll-snap variant, for pages with several training moments to browse.
+.gallery__scroll {
+  display: flex;
+  gap: $space-md;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: $space-xs;
+  -webkit-overflow-scrolling: touch;
+}
+
+.gallery__scroll img {
+  flex: 0 0 clamp(220px, 30vw, 320px);
+  aspect-ratio: 3 / 4;
+  scroll-snap-align: start;
+}
+
+@include respond(md) {
+  .gallery__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery__grid--pair {
+    grid-template-columns: 1fr;
+  }
+}

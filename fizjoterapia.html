@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fizjoterapia w Otwocku | Kamil Wojnicz</title>
+  <meta name="description" content="Fizjoterapia i rehabilitacja w Otwocku, prowadzona przez trenera i fizjoterapeutę Kamila Wojnicza.">
+  <!-- TODO(TODO.md): confirm real domain, replace kamilwojnicz.pl placeholder everywhere -->
+  <link rel="canonical" href="https://kamilwojnicz.pl/fizjoterapia.html">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pl_PL">
+  <meta property="og:url" content="https://kamilwojnicz.pl/fizjoterapia.html">
+  <meta property="og:title" content="Fizjoterapia w Otwocku | Kamil Wojnicz">
+  <meta property="og:description" content="Fizjoterapia i rehabilitacja w Otwocku, prowadzona przez trenera i fizjoterapeutę Kamila Wojnicza.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=1200&h=630&fit=crop&q=80">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+    /* Fizjoterapia-specific theme: violet. Overrides the site's default teal-green + off-white. */
+    body.page--fizjoterapia {
+      --color-accent: #c9a6f5;
+      --color-accent-dark: #4b2e83;
+      --color-accent-text: #c9a6f5;
+      --color-accent-contrast: #2c1a4f;
+      --color-bg: #2c1a4f;
+      --color-bg-alt: #4b2e83;
+      --color-text: #f1e9fb;
+      --color-text-muted: #bca6dc;
+      --color-border: rgba(201, 166, 245, 0.18);
+    }
+
+    /* Hero gradient, matches the page's violet theme. */
+    body.page--fizjoterapia .hero {
+      background: linear-gradient(90deg, #6b3fa0 0%, #4b2e83 50%, #2c1a4f 100%);
+    }
+  </style>
+</head>
+<body class="page--fizjoterapia">
+  <header class="site-header" id="site-header">
+    <div class="container header__inner">
+      <a class="logo" href="index.html">Kamil Wojnicz</a>
+
+      <nav class="nav" aria-label="Główna nawigacja">
+        <ul class="nav__list" id="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="pletfale.html">Płetfale</a></li>
+          <li><a href="trening-personalny.html">Trening Personalny</a></li>
+          <li><a href="fizjoterapia.html" class="is-active">Fizjoterapia</a></li>
+        </ul>
+      </nav>
+
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-list" aria-label="Otwórz menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero hero--solo">
+      <div class="hero__grid">
+        <div class="hero__content">
+          <h1 class="hero__title">
+            Fizjoterapia
+            <span class="hero__subtitle">Terapia bólu i rehabilitacja</span>
+          </h1>
+          <p class="hero__text">
+            Pomagam wrócić do sprawności po kontuzji, bólu lub długiej przerwie od ruchu. Terapia dopasowana do Twojego ciała i tempa regeneracji.
+          </p>
+          <a href="#kontakt" class="btn btn--primary hero__cta">Umów konsultację</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="conditions">
+      <div class="container">
+        <div class="conditions__header">
+          <h2 class="conditions__title">Co leczę</h2>
+          <p class="conditions__intro">Najczęstsze powody, z którymi przychodzą pacjenci.</p>
+        </div>
+
+        <div class="conditions__layout">
+          <ul class="conditions__list">
+            <li class="conditions__item">Ból pleców i kręgosłupa</li>
+            <li class="conditions__item">Kontuzje sportowe</li>
+            <li class="conditions__item">Rehabilitacja po urazach stawów</li>
+            <li class="conditions__item">Napięcia mięśniowe i przeciążenia</li>
+            <li class="conditions__item">Powrót do aktywności po przerwie</li>
+            <li class="conditions__item">Praca nad postawą i profilaktyka</li>
+          </ul>
+          <div class="conditions__aside">
+            <!-- TODO(TODO.md): placeholder image, replace with real photo -->
+            <img src="https://images.unsplash.com/photo-1571008887538-b36bb32f4571?w=700&h=930&fit=crop&q=80" alt="Powrót do biegania po rehabilitacji" width="700" height="933">
+          </div>
+        </div>
+        <!-- TODO(TODO.md): confirm real list of treated conditions/specializations -->
+      </div>
+    </section>
+
+    <section class="split">
+      <div class="container split__grid">
+        <div class="split__media">
+          <!-- TODO(TODO.md): placeholder image, replace with real photo from Kamil's practice -->
+          <img
+            src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=900&h=1125&fit=crop&q=80"
+            alt="Terapia manualna podczas wizyty fizjoterapeutycznej"
+            width="900"
+            height="1125"
+          >
+        </div>
+        <div>
+          <h2 class="split__title">Jak wygląda wizyta</h2>
+          <p class="split__text">Zaczynamy od wywiadu i oceny funkcjonalnej, żeby zrozumieć źródło problemu, nie tylko objaw.</p>
+          <p class="split__text">Dalej pracujemy terapią manualną i ćwiczeniami, z jasnym planem na kolejne wizyty.</p>
+          <a href="#kontakt" class="btn btn--primary content-block__cta">Umów konsultację</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery">
+      <div class="container">
+        <div class="gallery__header">
+          <h2 class="gallery__title">Ruch i regeneracja</h2>
+          <p class="gallery__intro">Praca z ciałem to nie tylko gabinet. To też ruch, rozciąganie i codzienna praktyka.</p>
+        </div>
+
+        <div class="gallery__grid gallery__grid--pair">
+          <!-- TODO(TODO.md): placeholder images, replace with real photos from Kamil's practice -->
+          <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=900&h=1125&fit=crop&q=80" alt="Ćwiczenia rozciągające o zachodzie słońca" width="900" height="1125">
+          <img src="https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?w=700&h=875&fit=crop&q=80" alt="Głęboki skłon podczas rozciągania" width="700" height="875">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="kontakt">
+    <div class="container footer__grid">
+      <div>
+        <h2 class="footer__heading">Kamil Wojnicz</h2>
+        <p class="footer__text">Trener personalny i fizjoterapeuta w Otwocku. Trening, fizjoterapia i pływanie pod jednym dachem.</p>
+
+        <!-- TODO(TODO.md): add real Instagram / Facebook / TikTok URLs -->
+        <div class="footer__social">
+          <a class="footer__social-link" href="#" rel="noopener noreferrer" target="_blank" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+              <circle cx="12" cy="12" r="4.2"></circle>
+              <circle cx="17.2" cy="6.8" r="0.6" fill="currentColor" stroke="none"></circle>
+            </svg>
+          </a>
+          <a class="footer__social-link" href="#" rel="noopener noreferrer" target="_blank" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M15 21v-7.5h2.5l.4-3H15V8.3c0-.9.25-1.5 1.5-1.5H18V4.15C17.7 4.1 16.7 4 15.5 4 13.1 4 11.5 5.5 11.5 8.2v2.3H9v3h2.5V21"></path>
+            </svg>
+          </a>
+          <a class="footer__social-link" href="#" rel="noopener noreferrer" target="_blank" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M14.5 3v10.7a3.4 3.4 0 1 1-3.4-3.4c.2 0 .4 0 .6.03"></path>
+              <path d="M14.5 3c.3 2.6 2.1 4.6 4.6 5v2.3"></path>
+            </svg>
+          </a>
+          <span class="footer__social-link footer__social-link--placeholder" title="Miejsce na kolejną platformę" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 5v14M5 12h14"></path>
+            </svg>
+          </span>
+        </div>
+      </div>
+
+      <div>
+        <h2 class="footer__heading">Kontakt</h2>
+        <!-- TODO(TODO.md): add real phone / email / address -->
+        <ul class="footer__contact-list">
+          <li>Telefon: dane wkrótce</li>
+          <li>Email: dane wkrótce</li>
+          <li>Otwock, mazowieckie</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer__bottom">
+      <span>&copy; 2026 Kamil Wojnicz. Wszystkie prawa zastrzeżone.</span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

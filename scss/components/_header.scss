@@ -1,0 +1,101 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.site-header {
+  position: relative;
+  border-bottom: 1px solid var(--color-border-header);
+  background: var(--color-bg);
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 4.25rem;
+}
+
+.logo {
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: 1.15rem;
+  text-decoration: none;
+  color: var(--color-text);
+}
+
+.nav__list {
+  display: flex;
+  gap: $space-lg;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav__list a {
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+
+  &.is-active,
+  &:hover {
+    color: var(--color-text);
+  }
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+
+  span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background: var(--color-text);
+    border-radius: 1px;
+  }
+}
+
+@include respond(md) {
+  .nav__list {
+    position: absolute;
+    top: 4.25rem;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-border-header);
+    opacity: 0;
+    transform: translateY(-8px);
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+
+    @include reduced-motion {
+      transition: none;
+    }
+  }
+
+  .nav__list a {
+    display: block;
+    padding: $space-md $container-pad;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .site-header.is-open .nav__list {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+}

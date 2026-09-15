@@ -1,0 +1,73 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.process {
+  padding-block: $space-2xl;
+}
+
+.process__header {
+  max-width: 42ch;
+  margin-bottom: $space-xl;
+}
+
+.process__title {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.process__intro {
+  margin-top: $space-sm;
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+}
+
+.process__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $space-lg;
+}
+
+.process__step {
+  padding-top: $space-md;
+  border-top: 1px solid var(--color-border);
+}
+
+.process__step-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: $radius;
+  margin-bottom: $space-md;
+}
+
+.process__index {
+  display: block;
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: 1.75rem;
+  color: var(--color-accent-text);
+}
+
+.process__step-title {
+  display: block;
+  margin-top: $space-sm;
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: 1.15rem;
+}
+
+.process__step-desc {
+  display: block;
+  margin-top: $space-xs;
+  color: var(--color-text-muted);
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+@include respond(md) {
+  .process__grid {
+    grid-template-columns: 1fr;
+    gap: $space-md;
+  }
+}

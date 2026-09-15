@@ -1,0 +1,200 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.hero {
+  overflow: hidden;
+}
+
+.hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 640px) 1fr;
+  align-items: center;
+  column-gap: $space-xl;
+  padding-block: clamp(2rem, 5vw, 6rem) 0;
+}
+
+.hero__content {
+  padding-left: max($container-pad, calc((100vw - #{$container-max}) / 2 + #{$container-pad}));
+  padding-bottom: $space-2xl;
+}
+
+.hero__title {
+  display: flex;
+  flex-direction: column;
+  font-size: clamp(2.25rem, 4vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.hero__subtitle {
+  margin-top: $space-xs;
+  font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+  font-weight: 500;
+  color: var(--color-accent-text);
+}
+
+.hero__text {
+  display: block;
+  margin-top: $space-md;
+  max-width: 42ch;
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.hero__cta {
+  margin-top: $space-lg;
+}
+
+.hero__media {
+  align-self: stretch;
+  justify-self: end;
+  width: 100%;
+  height: 100%;
+}
+
+.hero__image {
+  width: 100%;
+  height: 100%;
+  max-height: 78vh;
+  object-fit: cover;
+  object-position: top center;
+}
+
+/* Mirrored split: image on the left, content on the right. Used to give a subpage its own hero composition
+   instead of repeating the homepage/Płetfale text-left layout. */
+.hero--mirror .hero__grid {
+  grid-template-columns: 1fr minmax(0, 640px);
+}
+
+.hero--mirror .hero__content {
+  padding-left: $space-xl;
+  padding-right: max($container-pad, calc((100vw - #{$container-max}) / 2 + #{$container-pad}));
+}
+
+.hero--mirror .hero__media {
+  justify-self: start;
+}
+
+/* Text-only hero, no media column. Calmer, trust-first composition for pages that don't lead with a photo. */
+.hero--solo .hero__grid {
+  grid-template-columns: 1fr;
+}
+
+.hero--solo .hero__content {
+  max-width: 60ch;
+  padding-bottom: $space-2xl;
+}
+
+.hero--skeleton .hero__grid {
+  grid-template-columns: 1fr;
+}
+
+.hero--skeleton .hero__content {
+  padding-left: $container-pad;
+  padding-bottom: $space-2xl;
+}
+
+.hero__back {
+  display: inline-block;
+  margin-top: $space-md;
+  color: var(--color-accent-text);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* Full-bleed background media: video/image fills the entire hero, content overlays on top with a scrim
+   for contrast. Text is hardcoded light since a media background can't guarantee the page's own text tokens
+   stay readable. */
+.hero--bleed {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 100dvh;
+}
+
+.hero--bleed .hero__grid {
+  display: block;
+  width: 100%;
+  z-index: 2;
+  padding-block: 0;
+}
+
+.hero--bleed .hero__content {
+  position: relative;
+  z-index: 2;
+  max-width: 42rem;
+  padding-left: max($container-pad, calc((100vw - #{$container-max}) / 2 + #{$container-pad}));
+  padding-bottom: 0;
+  color: #fff;
+}
+
+.hero--bleed .hero__subtitle {
+  color: #baf0d6;
+}
+
+.hero--bleed .hero__text {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.hero--bleed .hero__media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero--bleed .hero__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  /* Stops sit at 0.88 -> 0.7 across the content zone (~0-40% of hero width) so text stays readable
+     against any video frame, then eases toward the vivid right side. Widened after 4.32:1 worst-case
+     measured against the previous curve (needed >=4.5:1). */
+  background: linear-gradient(90deg, rgba(10, 14, 12, 0.88) 0%, rgba(10, 14, 12, 0.7) 42%, rgba(10, 14, 12, 0.15) 75%);
+}
+
+.hero--bleed .hero__image {
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  object-position: center;
+}
+
+@include respond(md) {
+  .hero--bleed .hero__media::after {
+    background: linear-gradient(180deg, rgba(10, 14, 12, 0.35) 0%, rgba(10, 14, 12, 0.75) 65%, rgba(10, 14, 12, 0.85) 100%);
+  }
+
+  .hero--bleed .hero__content {
+    padding-left: $container-pad;
+    padding-right: $container-pad;
+    align-self: flex-end;
+    padding-bottom: $space-2xl;
+  }
+}
+
+@include respond(lg) {
+  .hero__grid,
+  .hero--mirror .hero__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__content,
+  .hero--mirror .hero__content {
+    padding-left: $container-pad;
+    padding-right: $container-pad;
+    padding-bottom: $space-lg;
+  }
+
+  .hero__media,
+  .hero--mirror .hero__media {
+    justify-self: stretch;
+  }
+
+  .hero__image {
+    max-height: 60vh;
+  }
+}

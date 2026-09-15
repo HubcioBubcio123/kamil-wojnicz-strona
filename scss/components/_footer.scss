@@ -1,0 +1,99 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.site-footer {
+  padding-block: $space-2xl $space-xl;
+  background: $color-text;
+  color: $color-bg;
+}
+
+.footer__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-xl;
+  padding-bottom: $space-xl;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.footer__heading {
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.footer__text {
+  margin-top: $space-sm;
+  color: rgba(247, 245, 240, 0.7);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.footer__contact-list {
+  margin-top: $space-sm;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer__contact-list a {
+  text-decoration: none;
+  color: $color-bg;
+  font-weight: 500;
+}
+
+.footer__social {
+  margin-top: $space-sm;
+  display: flex;
+  gap: $space-sm;
+}
+
+.footer__social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: $radius;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: $color-bg;
+
+  &:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+
+  svg {
+    width: 1.15rem;
+    height: 1.15rem;
+  }
+}
+
+.footer__social-link--placeholder {
+  border-style: dashed;
+  color: rgba(247, 245, 240, 0.35);
+  cursor: default;
+
+  &:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    color: rgba(247, 245, 240, 0.35);
+  }
+}
+
+.footer__bottom {
+  padding-top: $space-md;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: $space-sm;
+  font-size: 0.85rem;
+  color: rgba(247, 245, 240, 0.55);
+}
+
+@include respond(md) {
+  .footer__grid {
+    grid-template-columns: 1fr;
+    gap: $space-lg;
+  }
+}

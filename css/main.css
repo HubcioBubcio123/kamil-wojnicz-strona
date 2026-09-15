@@ -1,0 +1,895 @@
+@charset "UTF-8";
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light;
+}
+
+:root {
+  --color-accent: #0f6e5c;
+  --color-accent-dark: #0b5748;
+  --color-accent-text: #0b5748;
+  --color-accent-contrast: #ffffff;
+  --color-bg: #f2f6f3;
+  --color-bg-alt: #e6ede8;
+  --color-text: #161a18;
+  --color-text-muted: #55605a;
+  --color-border: #d3ddd7;
+  --color-border-header: #d3ddd7;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+h1, h2, h3 {
+  font-family: "Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  margin: 0;
+  line-height: 1.1;
+}
+
+p {
+  margin: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.9rem 1.75rem;
+  border-radius: 8px;
+  font-family: "Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  white-space: nowrap;
+  text-decoration: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+}
+.btn:active {
+  transform: translateY(1px) scale(0.98);
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn {
+    transition: none;
+  }
+}
+
+.btn--primary {
+  background: var(--color-accent);
+  color: var(--color-accent-contrast);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.08);
+}
+.btn--primary:hover {
+  background: var(--color-accent-dark);
+}
+
+.site-header {
+  position: relative;
+  border-bottom: 1px solid var(--color-border-header);
+  background: var(--color-bg);
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 4.25rem;
+}
+
+.logo {
+  font-family: "Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+  text-decoration: none;
+  color: var(--color-text);
+}
+
+.nav__list {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav__list a {
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+}
+.nav__list a.is-active, .nav__list a:hover {
+  color: var(--color-text);
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+.nav-toggle span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: var(--color-text);
+  border-radius: 1px;
+}
+
+@media (max-width: 768px) {
+  .nav__list {
+    position: absolute;
+    top: 4.25rem;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-border-header);
+    opacity: 0;
+    transform: translateY(-8px);
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+}
+@media (max-width: 768px) and (prefers-reduced-motion: reduce) {
+  .nav__list {
+    transition: none;
+  }
+}
+@media (max-width: 768px) {
+  .nav__list a {
+    display: block;
+    padding: 1.5rem 1.25rem;
+    border-top: 1px solid var(--color-border);
+  }
+  .site-header.is-open .nav__list {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  .nav-toggle {
+    display: flex;
+  }
+}
+.hero {
+  overflow: hidden;
+}
+
+.hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 640px) 1fr;
+  align-items: center;
+  column-gap: 4rem;
+  padding-block: clamp(2rem, 5vw, 6rem) 0;
+}
+
+.hero__content {
+  padding-left: max(1.25rem, (100vw - 1280px) / 2 + 1.25rem);
+  padding-bottom: 6rem;
+}
+
+.hero__title {
+  display: flex;
+  flex-direction: column;
+  font-size: clamp(2.25rem, 4vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.hero__subtitle {
+  margin-top: 0.5rem;
+  font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+  font-weight: 500;
+  color: var(--color-accent-text);
+}
+
+.hero__text {
+  display: block;
+  margin-top: 1.5rem;
+  max-width: 42ch;
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.hero__cta {
+  margin-top: 2.5rem;
+}
+
+.hero__media {
+  align-self: stretch;
+  justify-self: end;
+  width: 100%;
+  height: 100%;
+}
+
+.hero__image {
+  width: 100%;
+  height: 100%;
+  max-height: 78vh;
+  object-fit: cover;
+  object-position: top center;
+}
+
+/* Mirrored split: image on the left, content on the right. Used to give a subpage its own hero composition
+   instead of repeating the homepage/Płetfale text-left layout. */
+.hero--mirror .hero__grid {
+  grid-template-columns: 1fr minmax(0, 640px);
+}
+
+.hero--mirror .hero__content {
+  padding-left: 4rem;
+  padding-right: max(1.25rem, (100vw - 1280px) / 2 + 1.25rem);
+}
+
+.hero--mirror .hero__media {
+  justify-self: start;
+}
+
+/* Text-only hero, no media column. Calmer, trust-first composition for pages that don't lead with a photo. */
+.hero--solo .hero__grid {
+  grid-template-columns: 1fr;
+}
+
+.hero--solo .hero__content {
+  max-width: 60ch;
+  padding-bottom: 6rem;
+}
+
+.hero--skeleton .hero__grid {
+  grid-template-columns: 1fr;
+}
+
+.hero--skeleton .hero__content {
+  padding-left: 1.25rem;
+  padding-bottom: 6rem;
+}
+
+.hero__back {
+  display: inline-block;
+  margin-top: 1.5rem;
+  color: var(--color-accent-text);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* Full-bleed background media: video/image fills the entire hero, content overlays on top with a scrim
+   for contrast. Text is hardcoded light since a media background can't guarantee the page's own text tokens
+   stay readable. */
+.hero--bleed {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 100dvh;
+}
+
+.hero--bleed .hero__grid {
+  display: block;
+  width: 100%;
+  z-index: 2;
+  padding-block: 0;
+}
+
+.hero--bleed .hero__content {
+  position: relative;
+  z-index: 2;
+  max-width: 42rem;
+  padding-left: max(1.25rem, (100vw - 1280px) / 2 + 1.25rem);
+  padding-bottom: 0;
+  color: #fff;
+}
+
+.hero--bleed .hero__subtitle {
+  color: #baf0d6;
+}
+
+.hero--bleed .hero__text {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.hero--bleed .hero__media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero--bleed .hero__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  /* Stops sit at 0.88 -> 0.7 across the content zone (~0-40% of hero width) so text stays readable
+     against any video frame, then eases toward the vivid right side. Widened after 4.32:1 worst-case
+     measured against the previous curve (needed >=4.5:1). */
+  background: linear-gradient(90deg, rgba(10, 14, 12, 0.88) 0%, rgba(10, 14, 12, 0.7) 42%, rgba(10, 14, 12, 0.15) 75%);
+}
+
+.hero--bleed .hero__image {
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  object-position: center;
+}
+
+@media (max-width: 768px) {
+  .hero--bleed .hero__media::after {
+    background: linear-gradient(180deg, rgba(10, 14, 12, 0.35) 0%, rgba(10, 14, 12, 0.75) 65%, rgba(10, 14, 12, 0.85) 100%);
+  }
+  .hero--bleed .hero__content {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    align-self: flex-end;
+    padding-bottom: 6rem;
+  }
+}
+@media (max-width: 1024px) {
+  .hero__grid,
+  .hero--mirror .hero__grid {
+    grid-template-columns: 1fr;
+  }
+  .hero__content,
+  .hero--mirror .hero__content {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    padding-bottom: 2.5rem;
+  }
+  .hero__media,
+  .hero--mirror .hero__media {
+    justify-self: stretch;
+  }
+  .hero__image {
+    max-height: 60vh;
+  }
+}
+.work {
+  padding-block: 6rem;
+}
+
+.work__header {
+  max-width: 42ch;
+  margin-bottom: 4rem;
+}
+
+.work__title {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.work__text {
+  margin-top: 1rem;
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+}
+
+.work__grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  grid-template-rows: repeat(2, minmax(14rem, 1fr));
+  gap: 1.5rem;
+}
+
+.work__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border-radius: 8px;
+  overflow: hidden;
+  color: #ffffff;
+  text-decoration: none;
+  min-height: 14rem;
+}
+
+.work__card--featured {
+  grid-row: span 2;
+}
+
+.work__card-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.work__card-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10, 14, 12, 0.78) 0%, rgba(10, 14, 12, 0.15) 55%, rgba(10, 14, 12, 0) 100%);
+}
+
+.work__card-body {
+  position: relative;
+  padding: 1.5rem;
+}
+
+.work__card-title {
+  display: block;
+  font-family: "Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+.work__card-desc {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 32ch;
+}
+
+.work__card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 1rem;
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+@media (max-width: 768px) {
+  .work__grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+  }
+  .work__card--featured {
+    grid-row: auto;
+  }
+  .work__card {
+    min-height: 16rem;
+  }
+}
+.about {
+  padding-block: 6rem;
+  background: var(--color-bg-alt);
+}
+
+.about__inner {
+  max-width: 62ch;
+}
+
+.about__title {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.about__text {
+  margin-top: 1.5rem;
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.about__text + .about__text {
+  margin-top: 1rem;
+}
+
+.content-block {
+  padding-block: 6rem;
+}
+
+.content-block--alt {
+  background: var(--color-bg-alt);
+}
+
+.content-block__inner {
+  max-width: 62ch;
+}
+
+.content-block__title {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.content-block__text {
+  margin-top: 1.5rem;
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.content-block__text + .content-block__text {
+  margin-top: 1rem;
+}
+
+.content-block__cta {
+  margin-top: 2.5rem;
+}
+
+.process {
+  padding-block: 6rem;
+}
+
+.process__header {
+  max-width: 42ch;
+  margin-bottom: 4rem;
+}
+
+.process__title {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.process__intro {
+  margin-top: 1rem;
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+}
+
+.process__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+}
+
+.process__step {
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.process__step-image {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.process__index {
+  display: block;
+  font-family: "Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 700;
+  font-size: 1.75rem;
+  color: var(--color-accent-text);
+}
+
+.process__step-title {
+  display: block;
+  margin-top: 1rem;
+  font-family: "Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+}
+
+.process__step-desc {
+  display: block;
+  margin-top: 0.5rem;
+  color: var(--color-text-muted);
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .process__grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+.conditions {
+  padding-block: 6rem;
+}
+
+.conditions__header {
+  max-width: 42ch;
+  margin-bottom: 4rem;
+}
+
+.conditions__title {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.conditions__intro {
+  margin-top: 1rem;
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+}
+
+.conditions__layout {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  column-gap: 4rem;
+  align-items: start;
+}
+
+.conditions__aside img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  aspect-ratio: 3/4;
+}
+
+.conditions__list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 4rem;
+  row-gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.conditions__item {
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border);
+  font-size: 1.05rem;
+}
+
+@media (max-width: 768px) {
+  .conditions__layout {
+    grid-template-columns: 1fr;
+    row-gap: 2.5rem;
+  }
+  .conditions__aside {
+    order: -1;
+  }
+  .conditions__list {
+    grid-template-columns: 1fr;
+  }
+}
+/* Generic image + text split section, distinct from the hero component.
+   Reusable anywhere a page needs one supporting image next to prose. */
+.split {
+  padding-block: 6rem;
+  background: var(--color-bg-alt);
+}
+
+.split__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  column-gap: 4rem;
+}
+
+.split__media img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  aspect-ratio: 4/5;
+}
+
+.split__title {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.split__text {
+  margin-top: 1.5rem;
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+/* Compact variant: text leads, photo is a smaller supporting accent, not a full 50/50 split. */
+.split--compact .split__grid {
+  grid-template-columns: 1.6fr 1fr;
+}
+
+.split--compact .split__media img {
+  aspect-ratio: 1/1;
+}
+
+@media (max-width: 768px) {
+  .split__grid,
+  .split--compact .split__grid {
+    grid-template-columns: 1fr;
+    row-gap: 2.5rem;
+  }
+}
+.gallery {
+  padding-block: 6rem;
+}
+
+.gallery__header {
+  max-width: 42ch;
+  margin-bottom: 4rem;
+}
+
+.gallery__title {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.gallery__intro {
+  margin-top: 1rem;
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+  max-width: 60ch;
+}
+
+.gallery img {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+  display: block;
+}
+
+.gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.gallery__grid img {
+  aspect-ratio: 3/4;
+}
+
+.gallery__grid > :nth-child(2) img {
+  aspect-ratio: 3/5;
+}
+
+.gallery__grid--pair {
+  grid-template-columns: 1.2fr 1fr;
+}
+
+.gallery__grid--pair img {
+  aspect-ratio: 4/5;
+}
+
+.gallery__scroll {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 0.5rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.gallery__scroll img {
+  flex: 0 0 clamp(220px, 30vw, 320px);
+  aspect-ratio: 3/4;
+  scroll-snap-align: start;
+}
+
+@media (max-width: 768px) {
+  .gallery__grid {
+    grid-template-columns: 1fr;
+  }
+  .gallery__grid--pair {
+    grid-template-columns: 1fr;
+  }
+}
+.site-footer {
+  padding-block: 6rem 4rem;
+  background: #161a18;
+  color: #f2f6f3;
+}
+
+.footer__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  padding-bottom: 4rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.footer__heading {
+  font-family: "Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.footer__text {
+  margin-top: 1rem;
+  color: rgba(247, 245, 240, 0.7);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.footer__contact-list {
+  margin-top: 1rem;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer__contact-list a {
+  text-decoration: none;
+  color: #f2f6f3;
+  font-weight: 500;
+}
+
+.footer__social {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.footer__social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #f2f6f3;
+}
+.footer__social-link:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+.footer__social-link svg {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+.footer__social-link--placeholder {
+  border-style: dashed;
+  color: rgba(247, 245, 240, 0.35);
+  cursor: default;
+}
+.footer__social-link--placeholder:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  color: rgba(247, 245, 240, 0.35);
+}
+
+.footer__bottom {
+  padding-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.85rem;
+  color: rgba(247, 245, 240, 0.55);
+}
+
+@media (max-width: 768px) {
+  .footer__grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}

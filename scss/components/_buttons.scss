@@ -1,0 +1,37 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-xs;
+  padding: 0.9rem 1.75rem;
+  border-radius: $radius;
+  font-family: $font-heading;
+  font-weight: 600;
+  font-size: 1rem;
+  white-space: nowrap;
+  text-decoration: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+
+  &:active {
+    transform: translateY(1px) scale(0.98);
+  }
+
+  @include reduced-motion {
+    transition: none;
+  }
+}
+
+.btn--primary {
+  background: var(--color-accent);
+  color: var(--color-accent-contrast);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.08);
+
+  &:hover {
+    background: var(--color-accent-dark);
+  }
+}

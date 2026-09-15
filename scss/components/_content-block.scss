@@ -1,0 +1,35 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.content-block {
+  padding-block: $space-2xl;
+}
+
+.content-block--alt {
+  background: var(--color-bg-alt);
+}
+
+.content-block__inner {
+  max-width: 62ch;
+}
+
+.content-block__title {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.content-block__text {
+  margin-top: $space-md;
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.content-block__text + .content-block__text {
+  margin-top: $space-sm;
+}
+
+.content-block__cta {
+  margin-top: $space-lg;
+}

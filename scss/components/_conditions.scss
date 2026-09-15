@@ -1,0 +1,69 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.conditions {
+  padding-block: $space-2xl;
+}
+
+.conditions__header {
+  max-width: 42ch;
+  margin-bottom: $space-xl;
+}
+
+.conditions__title {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.conditions__intro {
+  margin-top: $space-sm;
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+}
+
+.conditions__layout {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  column-gap: $space-xl;
+  align-items: start;
+}
+
+.conditions__aside img {
+  width: 100%;
+  height: auto;
+  border-radius: $radius;
+  object-fit: cover;
+  aspect-ratio: 3 / 4;
+}
+
+.conditions__list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: $space-xl;
+  row-gap: $space-md;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.conditions__item {
+  padding-top: $space-sm;
+  border-top: 1px solid var(--color-border);
+  font-size: 1.05rem;
+}
+
+@include respond(md) {
+  .conditions__layout {
+    grid-template-columns: 1fr;
+    row-gap: $space-lg;
+  }
+
+  .conditions__aside {
+    order: -1;
+  }
+
+  .conditions__list {
+    grid-template-columns: 1fr;
+  }
+}
