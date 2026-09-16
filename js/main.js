@@ -21,3 +21,28 @@
     heroVideo.pause();
   }
 })();
+
+(function () {
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduceMotion) return;
+
+  document.querySelectorAll(".work__card-video").forEach(function (video) {
+    var card = video.closest(".work__card");
+    if (!card) return;
+
+    card.addEventListener("mouseenter", function () {
+      video.currentTime = 0;
+      video.play().catch(function () {});
+    });
+    card.addEventListener("mouseleave", function () {
+      video.pause();
+    });
+    card.addEventListener("focus", function () {
+      video.currentTime = 0;
+      video.play().catch(function () {});
+    });
+    card.addEventListener("blur", function () {
+      video.pause();
+    });
+  });
+})();

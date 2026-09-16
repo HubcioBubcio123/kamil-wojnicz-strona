@@ -39,10 +39,37 @@
   color: $color-accent-contrast;
   text-decoration: none;
   min-height: 14rem;
+  transition: transform 0.4s ease, opacity 0.4s ease, box-shadow 0.4s ease;
 }
 
 .work__card--featured {
   grid-row: span 2;
+  transform-origin: center right;
+}
+
+.work__card--featured:hover,
+.work__card--featured:focus-visible {
+  transform: scale(1.08);
+  box-shadow: 0 1.5rem 3rem rgba(10, 14, 12, 0.35);
+  z-index: 2;
+}
+
+.work__card--training {
+  transform-origin: center left;
+}
+
+.work__card--training:hover,
+.work__card--training:focus-visible {
+  transform: scale(1.1);
+  box-shadow: 0 1.5rem 3rem rgba(10, 14, 12, 0.35);
+  z-index: 2;
+}
+
+// While Trening Personalny expands rightward, the other cards yield to make room.
+.work__grid:has(.work__card--training:hover) .work__card:not(.work__card--training),
+.work__grid:has(.work__card--training:focus-visible) .work__card:not(.work__card--training) {
+  transform: scale(0.96);
+  opacity: 0.75;
 }
 
 .work__card-image {
@@ -51,6 +78,28 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: opacity 0.4s ease;
+}
+
+.work__card--video:hover .work__card-image,
+.work__card--video:focus-visible .work__card-image {
+  opacity: 0.4;
+}
+
+.work__card-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.work__card--video:hover .work__card-video,
+.work__card--video:focus-visible .work__card-video {
+  opacity: 1;
 }
 
 .work__card-scrim {
@@ -77,6 +126,21 @@
   font-size: 0.92rem;
   color: rgba(255, 255, 255, 0.85);
   max-width: 32ch;
+}
+
+.work__card-desc--long {
+  display: none;
+}
+
+.work__card--video:hover .work__card-desc--short,
+.work__card--video:focus-visible .work__card-desc--short {
+  display: none;
+}
+
+.work__card--video:hover .work__card-desc--long,
+.work__card--video:focus-visible .work__card-desc--long {
+  display: block;
+  max-width: 36ch;
 }
 
 .work__card-link {
