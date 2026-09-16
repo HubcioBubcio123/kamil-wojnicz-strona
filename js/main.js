@@ -30,19 +30,21 @@
     var card = video.closest(".work__card");
     if (!card) return;
 
-    card.addEventListener("mouseenter", function () {
+    video.addEventListener("loadeddata", function () {
       video.currentTime = 0;
+    });
+
+    function play() {
       video.play().catch(function () {});
-    });
-    card.addEventListener("mouseleave", function () {
+    }
+    function stop() {
       video.pause();
-    });
-    card.addEventListener("focus", function () {
       video.currentTime = 0;
-      video.play().catch(function () {});
-    });
-    card.addEventListener("blur", function () {
-      video.pause();
-    });
+    }
+
+    card.addEventListener("mouseenter", play);
+    card.addEventListener("mouseleave", stop);
+    card.addEventListener("focus", play);
+    card.addEventListener("blur", stop);
   });
 })();
