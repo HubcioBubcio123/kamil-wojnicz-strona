@@ -558,12 +558,77 @@ p {
   margin-top: 1rem;
 }
 
+.about-photo {
+  display: flex;
+  justify-content: center;
+}
+
+.about-photo__sticky {
+  width: 100%;
+}
+
+.about-photo__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: var(--ratio, 1320 / 881);
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+@media (min-width: 768px) {
+  .about-photo {
+    --expand: 0;
+    position: relative;
+    min-height: 115vh;
+  }
+  .split--compact .split__grid:has(.about-photo) {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+  .about-photo-text {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .about-photo__sticky {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .about-photo__img {
+    width: 100%;
+    clip-path: inset(calc(var(--head-top, 10%) * (1 - var(--expand))) calc(var(--head-right, 10%) * (1 - var(--expand))) calc(var(--head-bottom, 10%) * (1 - var(--expand))) calc(var(--head-left, 10%) * (1 - var(--expand))) round calc(999px * (1 - var(--expand)) + 8px * var(--expand)));
+  }
+  .about-photo--no-effect {
+    min-height: auto;
+  }
+  .about-photo--no-effect .about-photo__sticky {
+    position: static;
+    height: auto;
+  }
+  .about-photo--no-effect .about-photo__img {
+    clip-path: none;
+  }
+  .split__grid:has(.about-photo--no-effect) .about-photo-text {
+    position: static;
+    height: auto;
+    display: block;
+  }
+}
 .content-block {
-  padding-block: 6rem;
+  padding-block: 1rem;
 }
 
 .content-block--alt {
-  background: var(--color-bg-alt);
+  background: var(--color-bg);
 }
 
 .content-block__inner {
@@ -728,8 +793,8 @@ p {
 /* Generic image + text split section, distinct from the hero component.
    Reusable anywhere a page needs one supporting image next to prose. */
 .split {
-  padding-block: 6rem;
-  background: var(--color-bg-alt);
+  padding-block: 1rem;
+  background: var(--color-bg);
 }
 
 .split__grid {

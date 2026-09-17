@@ -2,11 +2,11 @@
 @use "../mixins" as *;
 
 .content-block {
-  padding-block: $space-2xl;
+  padding-block: $space-sm;
 }
 
 .content-block--alt {
-  background: var(--color-bg-alt);
+  background: var(--color-bg);
 }
 
 .content-block__inner {

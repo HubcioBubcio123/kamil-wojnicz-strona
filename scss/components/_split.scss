@@ -4,8 +4,8 @@
 /* Generic image + text split section, distinct from the hero component.
    Reusable anywhere a page needs one supporting image next to prose. */
 .split {
-  padding-block: $space-2xl;
-  background: var(--color-bg-alt);
+  padding-block: $space-sm;
+  background: var(--color-bg);
 }
 
 .split__grid {

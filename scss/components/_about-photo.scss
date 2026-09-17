@@ -1,0 +1,109 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+// Default crop rectangle (percent insets from each edge) that the full photo
+// clip-paths down to at scroll progress 0, and default aspect ratio. 10% on
+// each side leaves the photo ~80% uncovered already at rest, so scrolling
+// only unveils the remaining sliver instead of expanding from a tight
+// headshot. A second instance can override any of these per-element via
+// inline custom properties (--head-top / --head-right / --head-bottom /
+// --head-left / --ratio).
+$about-photo-head-top: 10%;
+$about-photo-head-right: 10%;
+$about-photo-head-bottom: 10%;
+$about-photo-head-left: 10%;
+$about-photo-ratio: "1320 / 881";
+
+.about-photo {
+  display: flex;
+  justify-content: center;
+}
+
+.about-photo__sticky {
+  width: 100%;
+}
+
+.about-photo__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: var(--ratio, #{$about-photo-ratio});
+  object-fit: cover;
+  border-radius: $radius;
+}
+
+@media (min-width: $bp-md) {
+  .about-photo {
+    --expand: 0;
+    position: relative;
+    min-height: 115vh;
+  }
+
+  // Scoped to O mnie split instances only (via :has), not the shared
+  // .split--compact ratio/alignment used elsewhere (e.g. pletfale.html) —
+  // makes the photo column half the section, and keeps the text pinned to
+  // the top of the row (next to where the photo starts) instead of centered
+  // down the middle of the tall scroll runway.
+  .split--compact .split__grid:has(.about-photo) {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+
+  // Pinned alongside the photo (same top:0 AND same height:100vh) so both
+  // release from their sticky position at the exact same scroll point.
+  // A sticky element's own box height sets how much scroll room it has
+  // before it's pushed out — text's natural (short) height would run out
+  // long before the photo's 100vh box does, unsticking early and drifting
+  // away on its own. Matching the height keeps them locked together.
+  // justify-content: center settles both at the vertical middle of the
+  // viewport while pinned, rather than flush against the very top.
+  .about-photo-text {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .about-photo__sticky {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .about-photo__img {
+    width: 100%;
+    clip-path: inset(
+      calc(var(--head-top, #{$about-photo-head-top}) * (1 - var(--expand)))
+      calc(var(--head-right, #{$about-photo-head-right}) * (1 - var(--expand)))
+      calc(var(--head-bottom, #{$about-photo-head-bottom}) * (1 - var(--expand)))
+      calc(var(--head-left, #{$about-photo-head-left}) * (1 - var(--expand)))
+      round calc(#{$radius-pill} * (1 - var(--expand)) + #{$radius} * var(--expand))
+    );
+  }
+
+  // prefers-reduced-motion fallback (added by JS): show the full photo, no pin/scrub.
+  .about-photo--no-effect {
+    min-height: auto;
+  }
+
+  .about-photo--no-effect .about-photo__sticky {
+    position: static;
+    height: auto;
+  }
+
+  .about-photo--no-effect .about-photo__img {
+    clip-path: none;
+  }
+
+  .split__grid:has(.about-photo--no-effect) .about-photo-text {
+    position: static;
+    height: auto;
+    display: block;
+  }
+}

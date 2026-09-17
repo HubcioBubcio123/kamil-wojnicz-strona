@@ -13,7 +13,6 @@ Tracks every placeholder currently in the site. Nothing here blocks the site fro
 - [ ] `pletfale.html` "Z basenu" gallery — replace 2 stock pool placeholders with real Płetfale class photos, save as `.webp`
 - [ ] `trening-personalny.html` "Z sali" gallery — replace 4 stock placeholders with real training-session photos, save as `.webp`
 - [ ] `fizjoterapia.html` "Ruch i regeneracja" gallery — replace 2 stock placeholders with real photos, save as `.webp`
-- [ ] `index.html` "O mnie" — replace stock training-space placeholder with a real photo of the studio/gym (deliberately not a portrait, to avoid implying a stock photo is Kamil), save as `.webp`
 - [ ] `pletfale.html` "Dla kogo" — replace stock aerial-wave placeholder with a real photo, save as `.webp`
 - [ ] `trening-personalny.html` process steps — replace 3 stock placeholders with real photos, save as `.webp`
 - [ ] `fizjoterapia.html` "Co leczę" aside — replace stock placeholder with a real photo, save as `.webp`

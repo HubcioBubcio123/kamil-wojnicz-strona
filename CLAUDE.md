@@ -42,8 +42,10 @@ No React, Vue, Next.js, jQuery, or CSS frameworks. Keep dependencies minimal.
 ├── js/
 │   └── main.js
 └── assets/
-    ├── img/
-    └── fonts/
+    ├── img/            (final, compressed .webp/.mp4 assets the site actually serves)
+    ├── fonts/
+    └── source/         (raw, unprocessed photo drops — not served; convert to .webp
+                          into assets/img/ before referencing from a page)
 ```
 
 Adjust as pages/components grow, but keep SCSS partials organized by component/section, not one giant file.
