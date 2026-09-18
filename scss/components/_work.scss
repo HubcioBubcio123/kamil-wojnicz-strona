@@ -39,7 +39,25 @@
   color: $color-accent-contrast;
   text-decoration: none;
   min-height: 14rem;
+  // Card's own opacity transition (0.4s) also drives its scroll-reveal fade-in below,
+  // so the reveal state stays on this single declaration instead of a second, colliding one.
   transition: transform 0.4s ease, opacity 0.4s ease, box-shadow 0.4s ease;
+}
+
+// Fade-only reveal (no transform): the transform property above is already spoken for by the
+// hover scale, so entrance uses opacity alone and rides the card's existing transition list.
+.work__card[data-reveal-fade] {
+  opacity: 0;
+}
+
+.work__card[data-reveal-fade].is-visible {
+  opacity: 1;
+}
+
+@include reduced-motion {
+  .work__card[data-reveal-fade] {
+    opacity: 1;
+  }
 }
 
 .work__card--featured {
@@ -65,7 +83,7 @@
   z-index: 2;
 }
 
-// While Trening Personalny expands rightward, the other cards yield to make room.
+// While Przygotowanie Fizyczne expands rightward, the other cards yield to make room.
 .work__grid:has(.work__card--training:hover) .work__card:not(.work__card--training),
 .work__grid:has(.work__card--training:focus-visible) .work__card:not(.work__card--training) {
   transform: scale(0.96);

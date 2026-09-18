@@ -6,11 +6,10 @@ Guidance for Claude Code working in this repo.
 
 Website for personal trainer based in Otwock, Poland. Three subpages plus homepage:
 
-- **Homepage** — hero, work (links to the 4 offer pages), about me, social links, contact
+- **Homepage** — hero, work (links to the 3 offer pages), about me, social links, contact
 - **Płetfale** (Swimming Academy — renamed from "Akademia Pływania", see TODO.md)
-- **Trening Personalny** (Personal Training)
+- **Przygotowanie Fizyczne** (Physical Conditioning — renamed from "Trening Personalny", see TODO.md; this is the real name of the service, not a separate "Motoryka" page)
 - **Fizjoterapia** (Physiotherapy)
-- **Motoryka** (Przygotowanie motoryczne / athletic-motor conditioning — a distinct 4th service, separate from Trening Personalny, not a rename of it)
 
 Business is based in **Otwock**, Poland. If any reference material says otherwise (e.g. a different town), Otwock is correct — confirmed by the user.
 
@@ -30,9 +29,8 @@ No React, Vue, Next.js, jQuery, or CSS frameworks. Keep dependencies minimal.
 /
 ├── index.html
 ├── pletfale.html
-├── trening-personalny.html
+├── przygotowanie-fizyczne.html
 ├── fizjoterapia.html
-├── motoryka.html
 ├── scss/
 │   ├── main.scss
 │   ├── _variables.scss
@@ -88,14 +86,15 @@ SEO and local Google ranking (Otwock + nearby area) are the top priority on ever
 
 ## Subpage layouts must be distinct
 
-Each of the 4 offer subpages (Płetfale, Trening Personalny, Fizjoterapia, Motoryka) gets its own layout, not a copy-pasted template reused with different colors and copy. Reusable building blocks (`.hero`, `.content-block`, the new `.process` steps section) are fair to share, but each page should combine and vary them differently — e.g. mirror the hero (`.hero--mirror`, image left/text right) on some pages, keep it text-left on others, use `.process` numbered steps where a service has a natural sequence, plain prose `.content-block`s where it doesn't. Płetfale (blue theme, hero gradient, wave divider, small square photo), Trening Personalny (mirrored hero, 3-step process section, dark theme with amber accent), and Fizjoterapia (text-only hero over a violet gradient, no hero photo, 2-column "Co leczę" conditions list, image+text `.split` section) are the shipped examples — Motoryka needs its own distinct composition and its own color palette when built, not a repeat of any of the three.
+Each of the 3 offer subpages (Płetfale, Przygotowanie Fizyczne, Fizjoterapia) gets its own layout, not a copy-pasted template reused with different colors and copy. Reusable building blocks (`.hero`, `.content-block`, the new `.process` steps section) are fair to share, but each page should combine and vary them differently — e.g. mirror the hero (`.hero--mirror`, image left/text right) on some pages, keep it text-left on others, use `.process` numbered steps where a service has a natural sequence, plain prose `.content-block`s where it doesn't. Płetfale (blue theme, hero gradient, wave divider, organic-blob hero photo, `.levels` wave-edged cards, `.audience` pill row, static wave-divider `.cta-banner` close), Przygotowanie Fizyczne (mirrored hero, 3-step process section, dark theme with amber accent), and Fizjoterapia (text-only hero over a violet gradient, no hero photo, 2-column "Co leczę" conditions list, image+text `.split` section) are the shipped examples.
 
 ## Reference material
 
 The private repo `HubcioBubcio123/pletfale-szkolka` (GitHub) is a fuller placeholder-driven spec for this same business — index="O mnie" hub, Płetfale, Fizjoterapia, Motoryka, each with their own SCSS folder. It was reviewed and only partially adopted:
 
 - **Adopted as content/structure ideas, not wholesale**: things like a testimonials ("opinie") section, a pricing-row list, a certifications timeline are fair inspiration for future sections — evaluate and build them within this project's existing shared-component SCSS architecture (not the reference's per-page-independent SCSS folders).
-- **Rejected**: eyebrow labels (conflicts with the hard constraint above), the reference's per-service inline accent colors (this project uses one CSS-custom-property accent per page, see `pletfale.html`'s `body.page--pletfale` override pattern), its Karczew address placeholder (this business is in Otwock), and its "Motoryka" being a rename of personal training (it's a distinct, separate 4th service here — see above).
+- **Rejected**: eyebrow labels (conflicts with the hard constraint above), the reference's per-service inline accent colors (this project uses one CSS-custom-property accent per page, see `pletfale.html`'s `body.page--pletfale` override pattern), and its Karczew address placeholder (this business is in Otwock).
+- **Reversed since**: the reference's "Motoryka" being a rename of personal training was initially rejected here as a distinct 4th service, but per later confirmed direction, "Trening Personalny" was itself renamed to "Przygotowanie Fizyczne" (its real name) — see "Rename tracking" in TODO.md. There is no separate Motoryka page; the site stays at 3 offer pages.
 - Font stack, JS animation approach (`data-reveal` scroll fade-ins, stat counters), and full section copy are not adopted as-is — reference only for what a section could contain, not a copy-paste source.
 
 ## What not to do

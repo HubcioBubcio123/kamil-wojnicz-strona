@@ -45,7 +45,7 @@
       position: relative;
     }
 
-    /* Photo: small rounded square centered in the media column, not a full-bleed fill. */
+    /* Photo: organic "water droplet" blob instead of a hard rectangle, centered in the media column. */
     body.page--pletfale .hero__media {
       display: flex;
       align-items: center;
@@ -53,12 +53,13 @@
     }
 
     body.page--pletfale .hero__image {
-      width: min(420px, 70%);
+      width: min(440px, 72%);
       height: auto;
       aspect-ratio: 1 / 1;
       max-height: none;
-      border-radius: 8px;
       object-fit: cover;
+      object-position: center 12%;
+      border-radius: 62% 38% 55% 45% / 45% 55% 42% 58%;
     }
 
     /* Decorative wave divider, adapted from the pletfale-szkolka reference repo (same blue palette). Anchored to the hero's own bottom edge. */
@@ -122,7 +123,7 @@
         <ul class="nav__list" id="nav-list">
           <li><a href="index.html">Home</a></li>
           <li><a href="pletfale.html" class="is-active">Płetfale</a></li>
-          <li><a href="trening-personalny.html">Trening Personalny</a></li>
+          <li><a href="przygotowanie-fizyczne.html">Przygotowanie Fizyczne</a></li>
           <li><a href="fizjoterapia.html">Fizjoterapia</a></li>
         </ul>
       </nav>
@@ -150,13 +151,12 @@
         </div>
 
         <div class="hero__media">
-          <!-- TODO(TODO.md): placeholder image, replace with real Płetfale photo -->
           <img
-            src="https://images.unsplash.com/photo-1530549387789-4c1017266635?w=1200&h=1500&fit=crop&q=80"
-            alt="Zajęcia pływackie Płetfale w Otwocku"
+            src="assets/img/kamil-wojnicz-basen.webp"
+            alt="Kamil Wojnicz, trener pływania, przy basenie w Otwocku"
             class="hero__image"
-            width="1200"
-            height="1500"
+            width="700"
+            height="1167"
           >
         </div>
       </div>
@@ -174,41 +174,96 @@
       </div>
     </section>
 
-    <section class="content-block">
-      <div class="container content-block__inner">
-        <h2 class="content-block__title">Co oferujemy</h2>
-        <p class="content-block__text">Nauka pływania od podstaw dla dzieci, oswajanie z wodą i przełamywanie lęku, a także doskonalenie techniki dla osób, które już pływają.</p>
-        <p class="content-block__text">Zajęcia prowadzone indywidualnie lub w małych grupach, dopasowane do wieku i poziomu uczestnika.</p>
+    <section class="levels">
+      <div class="container">
+        <div class="levels__header" data-reveal>
+          <h2 class="levels__title">Poziomy nauki</h2>
+          <p class="levels__intro">Od pierwszego kontaktu z wodą po doskonalenie techniki, każdy etap ma swój plan.</p>
+        </div>
+
+        <div class="levels__grid">
+          <div class="level-card" data-reveal>
+            <svg class="level-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 3C12 3 6 10.2 6 14.4a6 6 0 0 0 12 0C18 10.2 12 3 12 3Z"></path>
+            </svg>
+            <span class="level-card__index">01</span>
+            <span class="level-card__title">Oswojenie z wodą</span>
+            <span class="level-card__desc">Pierwszy kontakt z basenem, oddech i unoszenie się na wodzie, bez pośpiechu i bez lęku.</span>
+          </div>
+
+          <div class="level-card" data-reveal>
+            <svg class="level-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M2 8c1.5-1.6 3-1.6 4.5 0s3 1.6 4.5 0 3-1.6 4.5 0 3 1.6 4.5 0"></path>
+              <path d="M2 13.5c1.5-1.6 3-1.6 4.5 0s3 1.6 4.5 0 3-1.6 4.5 0 3 1.6 4.5 0"></path>
+              <path d="M2 19c1.5-1.6 3-1.6 4.5 0s3 1.6 4.5 0 3-1.6 4.5 0 3 1.6 4.5 0"></path>
+            </svg>
+            <span class="level-card__index">02</span>
+            <span class="level-card__title">Nauka pływania</span>
+            <span class="level-card__desc">Podstawowa technika i samodzielne pokonywanie basenu, krok po kroku, w małych grupach lub indywidualnie.</span>
+          </div>
+
+          <div class="level-card" data-reveal>
+            <svg class="level-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="13" r="7"></circle>
+              <path d="M12 13V9"></path>
+              <path d="M12 13l3 2"></path>
+              <path d="M9 3h6"></path>
+              <path d="M12 3v2"></path>
+            </svg>
+            <span class="level-card__index">03</span>
+            <span class="level-card__title">Doskonalenie techniki</span>
+            <span class="level-card__desc">Poprawa stylu, oddechu i tempa dla osób, które już pływają i chcą pływać lepiej.</span>
+          </div>
+        </div>
         <!-- TODO(TODO.md): add real class schedule, group sizes, and pricing -->
       </div>
     </section>
 
-    <section class="split split--compact">
-      <div class="container split__grid">
-        <div>
-          <h2 class="split__title">Dla kogo</h2>
-          <p class="split__text">Dla dzieci, które dopiero zaczynają przygodę z wodą, dla dorosłych, którzy nigdy nie nauczyli się pływać, i dla osób wracających do pływania po dłuższej przerwie.</p>
-          <a href="#kontakt" class="btn btn--primary content-block__cta">Zapisz się na zajęcia</a>
-        </div>
-        <div class="split__media">
-          <!-- TODO(TODO.md): placeholder image, replace with real photo -->
-          <img src="https://images.unsplash.com/photo-1540206395-68808572332f?w=700&h=700&fit=crop&q=80" alt="Fale wody widziane z góry" width="700" height="700">
-        </div>
+    <section class="audience">
+      <div class="container">
+        <h2 class="audience__title" data-reveal>Dla kogo</h2>
+        <ul class="audience__list" data-reveal>
+          <li class="audience__pill">Dzieci od najmłodszych lat</li>
+          <li class="audience__pill">Dorośli, którzy nigdy nie pływali</li>
+          <li class="audience__pill">Powrót po dłuższej przerwie</li>
+          <li class="audience__pill">Doskonalenie techniki</li>
+        </ul>
+        <a href="#kontakt" class="btn btn--primary audience__cta" data-reveal>Zapisz się na zajęcia</a>
       </div>
     </section>
 
     <section class="gallery">
       <div class="container">
-        <div class="gallery__header">
+        <div class="gallery__header" data-reveal>
           <h2 class="gallery__title">Z basenu</h2>
           <p class="gallery__intro">Technika, oddech, spokój w wodzie.</p>
         </div>
 
-        <div class="gallery__grid gallery__grid--pair">
+        <div class="gallery__grid">
           <!-- TODO(TODO.md): placeholder images, replace with real photos from Płetfale classes -->
-          <img src="https://images.unsplash.com/photo-1560089000-7433a4ebbd64?w=900&h=1125&fit=crop&q=80" alt="Pływak w stylu klasycznym na basenie" width="900" height="1125">
-          <img src="https://images.unsplash.com/photo-1600965962361-9035dbfd1c50?w=700&h=875&fit=crop&q=80" alt="Skok startowy do basenu" width="700" height="875">
+          <div class="gallery__item" data-reveal>
+            <img src="https://images.unsplash.com/photo-1560089000-7433a4ebbd64?w=700&h=933&fit=crop&q=80" alt="Pływak w stylu klasycznym na basenie" width="700" height="933">
+          </div>
+          <div class="gallery__item" data-reveal>
+            <img src="https://images.unsplash.com/photo-1600965962361-9035dbfd1c50?w=700&h=933&fit=crop&q=80" alt="Skok startowy do basenu" width="700" height="933">
+          </div>
+          <div class="gallery__item" data-reveal>
+            <img src="https://images.unsplash.com/photo-1540206395-68808572332f?w=700&h=933&fit=crop&q=80" alt="Fale wody widziane z góry" width="700" height="933">
+          </div>
         </div>
+      </div>
+    </section>
+
+    <section class="cta-banner">
+      <div class="cta-banner__divider" aria-hidden="true">
+        <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+          <path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,0 L0,0 Z" fill="#07275C"></path>
+        </svg>
+      </div>
+      <div class="container cta-banner__inner" data-reveal>
+        <h2 class="cta-banner__title">Gotowi na pierwsze zajęcia?</h2>
+        <p class="cta-banner__text">Napisz lub zadzwoń, ustalimy termin dopasowany do Twojego kalendarza.</p>
+        <a href="#kontakt" class="btn btn--primary cta-banner__cta">Zapisz się na zajęcia</a>
       </div>
     </section>
   </main>

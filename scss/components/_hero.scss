@@ -163,6 +163,25 @@
   object-position: center;
 }
 
+// Soft curved edge into the next section, so the hero doesn't hand off to a hard rectangle seam.
+// Static (no motion) to stay distinct from the animated wave used on the Płetfale page.
+.hero__divider {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  z-index: 3;
+  width: 100%;
+  height: clamp(48px, 7vw, 96px);
+  line-height: 0;
+}
+
+.hero__divider svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
 @include respond(md) {
   .hero--bleed .hero__media::after {
     background: linear-gradient(180deg, rgba(10, 14, 12, 0.35) 0%, rgba(10, 14, 12, 0.75) 65%, rgba(10, 14, 12, 0.85) 100%);

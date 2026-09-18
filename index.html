@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kamil Wojnicz - Trener Personalny i Fizjoterapeuta | Otwock</title>
-  <meta name="description" content="Trening personalny i fizjoterapia w Otwocku. Kamil Wojnicz pomoże Ci wrócić do formy, zbudować siłę i pozbyć się bólu.">
+  <meta name="description" content="Przygotowanie fizyczne i fizjoterapia w Otwocku. Kamil Wojnicz pomoże Ci wrócić do formy, zbudować siłę i pozbyć się bólu.">
   <!-- TODO(TODO.md): confirm real domain, replace kamilwojnicz.pl placeholder everywhere -->
   <link rel="canonical" href="https://kamilwojnicz.pl/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="pl_PL">
   <meta property="og:url" content="https://kamilwojnicz.pl/">
   <meta property="og:title" content="Kamil Wojnicz - Trener Personalny i Fizjoterapeuta | Otwock">
-  <meta property="og:description" content="Trening personalny i fizjoterapia w Otwocku. Kamil Wojnicz pomoże Ci wrócić do formy, zbudować siłę i pozbyć się bólu.">
+  <meta property="og:description" content="Przygotowanie fizyczne i fizjoterapia w Otwocku. Kamil Wojnicz pomoże Ci wrócić do formy, zbudować siłę i pozbyć się bólu.">
   <meta property="og:image" content="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=1200&h=630&fit=crop&q=80">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,7 +28,7 @@
         <ul class="nav__list" id="nav-list">
           <li><a href="index.html" class="is-active">Home</a></li>
           <li><a href="pletfale.html">Płetfale</a></li>
-          <li><a href="trening-personalny.html">Trening Personalny</a></li>
+          <li><a href="przygotowanie-fizyczne.html">Przygotowanie Fizyczne</a></li>
           <li><a href="fizjoterapia.html">Fizjoterapia</a></li>
         </ul>
       </nav>
@@ -71,17 +71,23 @@
           </video>
         </div>
       </div>
+
+      <div class="hero__divider" aria-hidden="true">
+        <svg viewBox="0 0 1440 96" preserveAspectRatio="none">
+          <path d="M0,48 C240,88 480,8 720,44 C960,80 1200,16 1440,52 L1440,96 L0,96 Z" fill="#f2f6f3"></path>
+        </svg>
+      </div>
     </section>
 
     <section class="work">
       <div class="container">
-        <div class="work__header">
+        <div class="work__header" data-reveal>
           <h2 class="work__title">Czym się zajmuję</h2>
           <p class="work__text">Trzy formy pracy z ciałem, jedna osoba prowadząca. Wybierz to, czego teraz potrzebujesz.</p>
         </div>
 
         <div class="work__grid">
-          <a class="work__card work__card--featured work__card--video" href="pletfale.html">
+          <a class="work__card work__card--featured work__card--video" data-reveal-fade href="pletfale.html">
             <video class="work__card-video" src="assets/img/pletfale/plywanie-hover.mp4" muted loop playsinline preload="metadata"></video>
             <span class="work__card-scrim"></span>
             <span class="work__card-body">
@@ -92,18 +98,18 @@
             </span>
           </a>
 
-          <a class="work__card work__card--training work__card--video" href="trening-personalny.html">
-            <video class="work__card-video" src="assets/img/trening-personalny/trening-hover.mp4" muted loop playsinline preload="metadata"></video>
+          <a class="work__card work__card--training work__card--video" data-reveal-fade href="przygotowanie-fizyczne.html">
+            <video class="work__card-video" src="assets/img/przygotowanie-fizyczne/przygotowanie-fizyczne-hover.mp4" muted loop playsinline preload="metadata"></video>
             <span class="work__card-scrim"></span>
             <span class="work__card-body">
-              <span class="work__card-title">Trening Personalny</span>
+              <span class="work__card-title">Przygotowanie Fizyczne</span>
               <span class="work__card-desc work__card-desc--short">Indywidualny plan dopasowany do Twojego celu i poziomu.</span>
               <span class="work__card-desc work__card-desc--long">Plan treningowy budowany od zera pod Twój cel — siłę, sylwetkę czy powrót do formy. Uczę poprawnej techniki ćwiczeń, dbam o progresję obciążeń i pilnuję, żeby trening był bezpieczny dla stawów i kręgosłupa.</span>
               <span class="work__card-link">Zobacz ofertę &#8594;</span>
             </span>
           </a>
 
-          <a class="work__card work__card--physio" href="fizjoterapia.html">
+          <a class="work__card work__card--physio" data-reveal-fade href="fizjoterapia.html">
             <!-- TODO(TODO.md): placeholder image, replace with real physio photo -->
             <img class="work__card-image" src="https://picsum.photos/seed/fizjoterapia-otwock/900/520" alt="" width="900" height="520">
             <span class="work__card-scrim"></span>
@@ -119,15 +125,15 @@
 
     <section class="split split--compact">
       <div class="container split__grid">
-        <div class="about-photo-text">
+        <div class="about-photo-text" data-reveal>
           <h2 class="split__title">O mnie</h2>
-          <p class="split__text">Nazywam się Kamil Wojnicz i łączę trening personalny z fizjoterapią, żeby pomagać ludziom w Otwocku wracać do sprawności i budować siłę w sposób bezpieczny dla ciała.</p>
+          <p class="split__text">Nazywam się Kamil Wojnicz i łączę przygotowanie fizyczne z fizjoterapią, żeby pomagać ludziom w Otwocku wracać do sprawności i budować siłę w sposób bezpieczny dla ciała.</p>
           <p class="split__text">Pracuję indywidualnie, dopasowując program do stanu zdrowia, celu i tempa życia klienta, niezależnie od tego, czy zaczynasz od zera, czy wracasz po kontuzji.</p>
           <!-- TODO(TODO.md): add real certifications / qualifications / years of experience -->
         </div>
-        <div class="about-photo">
+        <div class="about-photo" style="--ratio: 432 / 541; --scroll-height: 115vh;">
           <div class="about-photo__sticky">
-            <img class="about-photo__img" src="assets/img/kamil-wojnicz-o-mnie.webp" alt="Kamil Wojnicz, trener personalny i fizjoterapeuta w Otwocku" width="900" height="601">
+            <img class="about-photo__img" src="assets/img/kamil-wojnicz-o-mnie.webp" alt="Kamil Wojnicz na plaży" width="432" height="541">
           </div>
         </div>
       </div>
@@ -135,12 +141,12 @@
 
     <section class="split split--compact">
       <div class="container split__grid">
-        <div class="about-photo" style="--ratio: 3 / 4;">
+        <div class="about-photo" style="--ratio: 3 / 4; --scroll-height: 115vh;">
           <div class="about-photo__sticky">
-            <img class="about-photo__img" src="assets/img/kamil-wojnicz-o-mnie-2.webp" alt="Kamil Wojnicz odpoczywający przy basenie" width="900" height="1200">
+            <img class="about-photo__img" src="assets/img/kamil-wojnicz-o-mnie-2.webp" alt="Kamil Wojnicz, trener personalny w Otwocku" width="893" height="912">
           </div>
         </div>
-        <div class="about-photo-text">
+        <div class="about-photo-text" data-reveal>
           <p class="split__text">Każdy plan zaczynam od dokładnej oceny ciała i historii kontuzji, żeby trening wzmacniał, a nie obciążał to, co jeszcze się goi.</p>
           <p class="split__text">Regularnie sprawdzam i modyfikuję ćwiczenia razem z klientem, więc postępy widać, a ryzyko nawrotu bólu spada.</p>
         </div>
@@ -149,16 +155,22 @@
 
     <section class="gallery">
       <div class="container">
-        <div class="gallery__header">
+        <div class="gallery__header" data-reveal>
           <h2 class="gallery__title">W akcji</h2>
           <p class="gallery__intro">Trening, bieganie, pływanie. Tak wygląda praca nad formą na co dzień.</p>
         </div>
 
         <div class="gallery__grid">
           <!-- TODO(TODO.md): placeholder images, replace with real photos from Kamil's sessions -->
-          <img src="https://images.unsplash.com/photo-1571008887538-b36bb32f4571?w=700&h=930&fit=crop&q=80" alt="Trening biegowy na ulicy" width="700" height="933">
-          <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=700&h=1160&fit=crop&q=80" alt="Zajęcia grupowe z elementami stabilizacji" width="700" height="1167">
-          <img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=700&h=930&fit=crop&q=80" alt="Bieganie o wschodzie słońca" width="700" height="933">
+          <div class="gallery__item" data-reveal>
+            <img src="https://images.unsplash.com/photo-1571008887538-b36bb32f4571?w=700&h=930&fit=crop&q=80" alt="Trening biegowy na ulicy" width="700" height="933">
+          </div>
+          <div class="gallery__item" data-reveal>
+            <img src="assets/img/kamil-wojnicz-basen.webp" alt="Kamil Wojnicz na basenie, przygotowanie do zajęć pływackich" width="700" height="1167">
+          </div>
+          <div class="gallery__item" data-reveal>
+            <img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=700&h=930&fit=crop&q=80" alt="Bieganie o wschodzie słońca" width="700" height="933">
+          </div>
         </div>
       </div>
     </section>
@@ -220,7 +232,7 @@
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Kamil Wojnicz - Trener Personalny i Fizjoterapeuta",
-    "description": "Trening personalny, fizjoterapia i nauka pływania (Płetfale) w Otwocku.",
+    "description": "Przygotowanie fizyczne, fizjoterapia i nauka pływania (Płetfale) w Otwocku.",
     "url": "https://kamilwojnicz.pl/",
     "areaServed": "Otwock",
     "address": {

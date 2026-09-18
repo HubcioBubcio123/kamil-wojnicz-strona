@@ -26,9 +26,28 @@
 .gallery img {
   width: 100%;
   height: 100%;
-  border-radius: $radius;
   object-fit: cover;
   display: block;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+  filter: grayscale(0.15) brightness(0.97);
+}
+
+// Clips the hover scale to the tile's own rounded corners, so the image doesn't spill over its neighbors.
+.gallery__item {
+  border-radius: $radius;
+  overflow: hidden;
+}
+
+.gallery__item:hover img,
+.gallery__item:focus-within img {
+  transform: scale(1.06);
+  filter: grayscale(0) brightness(1);
+}
+
+@include reduced-motion {
+  .gallery img {
+    transition: filter 0.4s ease;
+  }
 }
 
 // Default grid: N photos, evenly spaced, middle tile taller for rhythm.
@@ -44,6 +63,15 @@
 
 .gallery__grid > :nth-child(2) img {
   aspect-ratio: 3 / 5;
+}
+
+// Stagger the scroll-reveal across the row instead of all three tiles fading in at once.
+.gallery__grid > :nth-child(2)[data-reveal] {
+  transition-delay: 0.1s;
+}
+
+.gallery__grid > :nth-child(3)[data-reveal] {
+  transition-delay: 0.2s;
 }
 
 // Two-photo variant: one larger, one smaller.

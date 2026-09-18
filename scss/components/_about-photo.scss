@@ -36,7 +36,7 @@ $about-photo-ratio: "1320 / 881";
   .about-photo {
     --expand: 0;
     position: relative;
-    min-height: 115vh;
+    min-height: var(--scroll-height, 108vh);
   }
 
   // Scoped to O mnie split instances only (via :has), not the shared
