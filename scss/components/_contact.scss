@@ -1,0 +1,43 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.contact {
+  padding-block: $space-2xl;
+  background: $color-bg;
+  color: $color-text;
+}
+
+.contact__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-xl;
+  align-items: start;
+}
+
+.contact__title {
+  font-family: $font-heading;
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+}
+
+.contact__text {
+  margin-top: $space-sm;
+  max-width: 30rem;
+  color: $color-text-muted;
+}
+
+.contact__list {
+  margin-top: $space-lg;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-weight: 500;
+}
+
+@include respond(md) {
+  .contact__grid {
+    grid-template-columns: 1fr;
+    gap: $space-lg;
+  }
+}

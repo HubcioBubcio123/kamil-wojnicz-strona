@@ -1,0 +1,320 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.button {
+  --primary: #{$color-accent-contrast};
+  --neutral-1: var(--color-accent);
+  --neutral-2: var(--color-accent-dark);
+  --radius: #{$radius-pill};
+
+  cursor: pointer;
+  border-radius: var(--radius);
+  border: none;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  min-width: 8rem;
+  padding: 0.9rem 1.75rem;
+  font-family: $font-heading;
+  font-style: normal;
+  font-size: 1rem;
+  font-weight: 600;
+  color: $color-accent-contrast;
+  background: var(--neutral-1);
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.1);
+}
+
+.button:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
+}
+
+.button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
+  border: 2px solid transparent;
+  background:
+    linear-gradient(var(--neutral-1), var(--neutral-2)) padding-box,
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.1)) border-box;
+  z-index: 0;
+  transition: all 0.4s ease;
+}
+
+.button:hover::after {
+  transform: scale(1.03, 1.08);
+}
+
+.button::before {
+  content: "";
+  inset: 2px;
+  position: absolute;
+  background: linear-gradient(to top, var(--neutral-1), var(--neutral-2));
+  border-radius: inherit;
+  z-index: 2;
+}
+
+.state p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.state .icon {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  transform: scale(1.25);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.state .icon svg {
+  overflow: visible;
+}
+
+.outline {
+  position: absolute;
+  border-radius: inherit;
+  overflow: hidden;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  inset: -2px -3.5px;
+}
+
+.outline::before {
+  content: "";
+  position: absolute;
+  inset: -100%;
+  background: conic-gradient(from 180deg, transparent 60%, rgba(255, 255, 255, 0.55) 80%, transparent 100%);
+  animation: send-btn-spin 2s linear infinite;
+  animation-play-state: paused;
+}
+
+@keyframes send-btn-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.button:hover .outline {
+  opacity: 1;
+}
+
+.button:hover .outline::before {
+  animation-play-state: running;
+}
+
+.state p span {
+  display: block;
+  opacity: 0;
+  animation: send-btn-slide-down 0.8s ease forwards calc(var(--i) * 0.03s);
+}
+
+.button:hover p span {
+  opacity: 1;
+  animation: send-btn-wave 0.5s ease forwards calc(var(--i) * 0.02s);
+}
+
+.button.is-sent p span {
+  opacity: 1;
+  animation: send-btn-disappear 0.6s ease forwards calc(var(--i) * 0.03s);
+}
+
+@keyframes send-btn-wave {
+  30% {
+    opacity: 1;
+    transform: translateY(4px) translateX(0) rotate(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-3px) translateX(0) rotate(0);
+    color: var(--primary);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) translateX(0) rotate(0);
+  }
+}
+
+@keyframes send-btn-slide-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px) translateX(5px) rotate(-90deg);
+    color: var(--primary);
+    filter: blur(5px);
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(4px) translateX(0) rotate(0);
+    filter: blur(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-3px) translateX(0) rotate(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) translateX(0) rotate(0);
+  }
+}
+
+@keyframes send-btn-disappear {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: translateX(5px) translateY(20px);
+    color: var(--primary);
+    filter: blur(5px);
+  }
+}
+
+.state--default .icon svg {
+  animation: send-btn-land 0.6s ease forwards;
+}
+
+.button:hover .state--default .icon {
+  transform: rotate(45deg) scale(1.25);
+}
+
+.button.is-sent .state--default svg {
+  animation: send-btn-take-off 0.8s linear forwards;
+}
+
+.button.is-sent .state--default .icon {
+  transform: rotate(0) scale(1.25);
+}
+
+@keyframes send-btn-take-off {
+  0% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(70px) rotate(45deg) scale(2);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(160px) rotate(45deg) scale(0);
+  }
+}
+
+@keyframes send-btn-land {
+  0% {
+    transform: translateX(-60px) translateY(30px) rotate(-50deg) scale(2);
+    opacity: 0;
+    filter: blur(3px);
+  }
+  100% {
+    transform: translateX(0) translateY(0) rotate(0);
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+.state--default .icon::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  height: 2px;
+  width: 0;
+  left: -5px;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.5));
+}
+
+.button.is-sent .state--default .icon::before {
+  animation: send-btn-contrail 0.8s linear forwards;
+}
+
+@keyframes send-btn-contrail {
+  0% {
+    width: 0;
+    opacity: 1;
+  }
+  8% {
+    width: 15px;
+  }
+  60% {
+    opacity: 0.7;
+    width: 80px;
+  }
+  100% {
+    opacity: 0;
+    width: 160px;
+  }
+}
+
+.state {
+  padding-left: 22px;
+  z-index: 2;
+  display: flex;
+  position: relative;
+}
+
+.state--sent {
+  display: none;
+}
+
+.state--sent svg {
+  transform: scale(1.25);
+  margin-right: 8px;
+}
+
+.button.is-sent .state--default {
+  position: absolute;
+}
+
+.button.is-sent .state--sent {
+  display: flex;
+}
+
+.button.is-sent .state--sent span {
+  opacity: 0;
+  animation: send-btn-slide-down 0.8s ease forwards calc(var(--i) * 0.2s);
+}
+
+.button.is-sent .state--sent .icon svg {
+  opacity: 0;
+  animation: send-btn-appear 1.2s ease forwards 0.8s;
+}
+
+@keyframes send-btn-appear {
+  0% {
+    opacity: 0;
+    transform: scale(4) rotate(-40deg);
+    color: var(--primary);
+    filter: blur(4px);
+  }
+  30% {
+    opacity: 1;
+    transform: scale(0.6);
+    filter: blur(1px);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

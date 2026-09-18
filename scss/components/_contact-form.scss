@@ -1,0 +1,182 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.contact-form__card {
+  max-width: 32rem;
+  background: $color-accent-contrast;
+  border: 1px solid $color-border;
+  border-radius: $radius;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.contact-form__progress {
+  height: 6px;
+  background: $color-border;
+}
+
+.contact-form__progress-fill {
+  height: 100%;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: var(--color-accent);
+  transition: transform 0.3s ease;
+}
+
+.contact-form {
+  padding: $space-lg;
+}
+
+.contact-form__step {
+  border: 0;
+  padding: 0;
+  margin: 0 0 $space-lg;
+}
+
+.contact-form__step legend {
+  font-family: $font-heading;
+  font-weight: 600;
+  padding: 0;
+  margin-bottom: $space-sm;
+}
+
+.contact-form__options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-xs;
+  margin-bottom: $space-md;
+}
+
+.contact-form__option {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.7rem 1rem;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  font-size: 0.9rem;
+}
+
+.contact-form__option::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: $radius;
+  border: 2px solid $color-border;
+  transition: all 0.2s ease;
+}
+
+.contact-form__option:hover::before {
+  background-color: $color-bg-alt;
+}
+
+.contact-form__option:has(input:checked)::before {
+  background-color: $color-bg-alt;
+  border-color: var(--color-accent);
+}
+
+.contact-form__option input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 2px solid $color-border;
+  background: $color-accent-contrast;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-form__option input[type="radio"]::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: $color-accent-contrast;
+  transform: scale(0);
+  transition: transform 0.15s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.contact-form__option input[type="radio"]:checked {
+  border-color: var(--color-accent);
+  background: var(--color-accent);
+  animation: contact-radio-pulse 0.6s ease-out;
+}
+
+.contact-form__option input[type="radio"]:checked::before {
+  transform: scale(1);
+}
+
+@keyframes contact-radio-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(15, 110, 92, 0.35);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(15, 110, 92, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(15, 110, 92, 0);
+  }
+}
+
+.contact-form__field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: $space-md;
+  font-size: 0.9rem;
+}
+
+.contact-form__field-label {
+  position: relative;
+  top: 0.5rem;
+  width: fit-content;
+  margin: 0 0 0 7px;
+  padding: 0 3px;
+  background: $color-accent-contrast;
+  color: var(--color-accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.contact-form__field input,
+.contact-form__field textarea,
+.contact-form__step select {
+  display: block;
+  width: 100%;
+  padding: 0.65rem 0.75rem;
+  background: $color-accent-contrast;
+  border: 2px solid var(--color-accent);
+  border-radius: $radius;
+  color: $color-text;
+  font: inherit;
+}
+
+.contact-form__field input:focus,
+.contact-form__field textarea:focus,
+.contact-form__step select:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(15, 110, 92, 0.25);
+}
+
+.contact-form__actions {
+  display: flex;
+  gap: $space-sm;
+}
+
+.contact-form__status:not(:empty) {
+  margin-bottom: $space-sm;
+  font-size: 0.9rem;
+}
+
+.contact-form__honeypot {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+  pointer-events: none;
+}
