@@ -7,7 +7,7 @@ Tracks every placeholder currently in the site. Nothing here blocks the site fro
 - [ ] `index.html` hero — now a full-bleed background **video** (placeholder, verified gym footage, battle ropes, but not Kamil) instead of a photo, per request. Replace with real video of Kamil training/working with a client. Poster image (shown before the video loads, and as the `prefers-reduced-motion` fallback) still needs a real photo too, min. 1200x1500px, save as `assets/img/kamil-wojnicz-hero.webp` (per CLAUDE.md, `.webp` only)
 - [ ] `index.html` work section — replace 3 stock placeholders (Płetfale, Przygotowanie Fizyczne, Fizjoterapia cards) with real photos, save as `.webp` in `assets/img/`
 - [x] `pletfale.html` hero — now uses `assets/img/pletfale/plywanie-hover.mp4` as a full-bleed background video (poster: `kamil-wojnicz-basen.webp`), matching `index.html`'s hero pattern.
-- [ ] `pletfale.html` "Poziomy nauki" cards — 1 of 3 uses real media (`plywanie-hover.mp4`); the other 2 use Unsplash/repeat placeholders, replace with real photos/video per level, save as `.webp`/`.mp4`
+- [ ] `pletfale.html` "Poziomy nauki" cards — 2 of 3 use real video (`plywanie-lekcja.mp4`, `plywanie-nauka.mp4`); the 3rd (Doskonalenie techniki) still uses a repeat `.webp` placeholder, replace with real photo/video, save as `.webp`/`.mp4`
 - [ ] `pletfale.html` "Dla kogo" split sections — 2nd photo is an Unsplash placeholder, replace with a real Płetfale class photo, save as `.webp`
 - [ ] `przygotowanie-fizyczne.html` hero — replace stock gym photo (same Unsplash photo as homepage hero) with a real training photo, save as `.webp`
 - [ ] `fizjoterapia.html` split section — replace stock manual-therapy photo (Unsplash) with a real photo from Kamil's practice, save as `.webp`
