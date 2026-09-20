@@ -40,7 +40,7 @@
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (reduceMotion) return;
 
-  document.querySelectorAll(".work__card-video").forEach(function (video) {
+  document.querySelectorAll(".work__card-video:not([data-autoplay])").forEach(function (video) {
     var card = video.closest(".work__card");
     if (!card) return;
 

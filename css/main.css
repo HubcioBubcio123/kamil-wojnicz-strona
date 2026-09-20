@@ -551,15 +551,18 @@ p {
   grid-template-rows: none;
 }
 
+.work__card--level {
+  aspect-ratio: 9/16;
+}
+
 .work__card--level:hover,
 .work__card--level:focus-visible {
-  transform: scale(1.05);
   box-shadow: 0 1.5rem 3rem rgba(10, 14, 12, 0.35);
   z-index: 2;
 }
 
-.work__grid:has(.work__card:hover) .work__card:not(:hover),
-.work__grid:has(.work__card:focus-visible) .work__card:not(:focus-visible) {
+.work__grid:has(.work__card:hover) .work__card:not(.work__card--level):not(:hover),
+.work__grid:has(.work__card:focus-visible) .work__card:not(.work__card--level):not(:focus-visible) {
   transform: scale(0.96);
   opacity: 0.75;
 }
@@ -1744,3 +1747,5 @@ p {
   font-size: 0.85rem;
   color: rgba(247, 245, 240, 0.55);
 }
+
+/*# sourceMappingURL=main.css.map */
