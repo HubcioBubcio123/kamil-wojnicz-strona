@@ -523,8 +523,15 @@ p {
   z-index: 2;
 }
 
-.work__grid:has(.work__card--training:hover) .work__card:not(.work__card--training),
-.work__grid:has(.work__card--training:focus-visible) .work__card:not(.work__card--training) {
+.work__card--physio:hover,
+.work__card--physio:focus-visible {
+  transform: scale(1.05);
+  box-shadow: 0 1.5rem 3rem rgba(10, 14, 12, 0.35);
+  z-index: 2;
+}
+
+.work__grid:has(.work__card:hover) .work__card:not(:hover),
+.work__grid:has(.work__card:focus-visible) .work__card:not(:focus-visible) {
   transform: scale(0.96);
   opacity: 0.75;
 }
@@ -565,27 +572,39 @@ p {
   font-size: 1.3rem;
 }
 
-.work__card-desc {
-  display: block;
+.work__card-desc-group {
+  display: grid;
   margin-top: 0.35rem;
+}
+
+.work__card-desc {
+  grid-area: 1/1;
+  margin: 0;
   font-size: 0.92rem;
   color: rgba(255, 255, 255, 0.85);
   max-width: 32ch;
+  transition: opacity 0.3s ease;
+}
+@media (prefers-reduced-motion: reduce) {
+  .work__card-desc {
+    transition: none;
+  }
 }
 
 .work__card-desc--long {
-  display: none;
+  opacity: 0;
+  max-width: 34ch;
 }
 
-.work__card--video:hover .work__card-desc--short,
-.work__card--video:focus-visible .work__card-desc--short {
-  display: none;
+.work__card:hover .work__card-desc--short,
+.work__card:focus-visible .work__card-desc--short {
+  opacity: 0;
 }
 
-.work__card--video:hover .work__card-desc--long,
-.work__card--video:focus-visible .work__card-desc--long {
-  display: block;
-  max-width: 36ch;
+.work__card:hover .work__card-desc--long,
+.work__card:focus-visible .work__card-desc--long {
+  opacity: 1;
+  transition-delay: 0.15s;
 }
 
 .work__card-link {

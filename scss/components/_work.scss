@@ -83,9 +83,16 @@
   z-index: 2;
 }
 
-// While Przygotowanie Fizyczne expands rightward, the other cards yield to make room.
-.work__grid:has(.work__card--training:hover) .work__card:not(.work__card--training),
-.work__grid:has(.work__card--training:focus-visible) .work__card:not(.work__card--training) {
+.work__card--physio:hover,
+.work__card--physio:focus-visible {
+  transform: scale(1.05);
+  box-shadow: 0 1.5rem 3rem rgba(10, 14, 12, 0.35);
+  z-index: 2;
+}
+
+// Whichever card is hovered/focused grows (rules above); every other card yields to make room.
+.work__grid:has(.work__card:hover) .work__card:not(:hover),
+.work__grid:has(.work__card:focus-visible) .work__card:not(:focus-visible) {
   transform: scale(0.96);
   opacity: 0.75;
 }
@@ -126,27 +133,43 @@
   font-size: 1.3rem;
 }
 
-.work__card-desc {
-  display: block;
+// Wrapper stacks short/long copy in the same grid cell so they can cross-fade
+// instead of instantly swapping with display:none/block. Placing both in the
+// same cell also makes the cell size to the taller of the two automatically,
+// so the reveal never overlaps or gets clipped by the card below it.
+.work__card-desc-group {
+  display: grid;
   margin-top: 0.35rem;
+}
+
+.work__card-desc {
+  grid-area: 1 / 1;
+  margin: 0;
   font-size: 0.92rem;
   color: rgba(255, 255, 255, 0.85);
   max-width: 32ch;
+  transition: opacity 0.3s ease;
+
+  @include reduced-motion {
+    transition: none;
+  }
 }
 
 .work__card-desc--long {
-  display: none;
+  opacity: 0;
+  max-width: 34ch;
 }
 
-.work__card--video:hover .work__card-desc--short,
-.work__card--video:focus-visible .work__card-desc--short {
-  display: none;
+.work__card:hover .work__card-desc--short,
+.work__card:focus-visible .work__card-desc--short {
+  opacity: 0;
 }
 
-.work__card--video:hover .work__card-desc--long,
-.work__card--video:focus-visible .work__card-desc--long {
-  display: block;
-  max-width: 36ch;
+// Momentary pause before the longer copy appears, so it reads as a deliberate reveal, not a flicker.
+.work__card:hover .work__card-desc--long,
+.work__card:focus-visible .work__card-desc--long {
+  opacity: 1;
+  transition-delay: 0.15s;
 }
 
 .work__card-link {
