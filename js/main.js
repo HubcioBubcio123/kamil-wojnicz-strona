@@ -12,6 +12,20 @@
 })();
 
 (function () {
+  document.querySelectorAll("select[data-number-options]").forEach(function (select) {
+    var range = select.dataset.numberOptions.split("-");
+    var min = parseInt(range[0], 10);
+    var max = parseInt(range[1], 10);
+    for (var i = min; i <= max; i++) {
+      var opt = document.createElement("option");
+      opt.value = String(i);
+      opt.textContent = String(i);
+      select.appendChild(opt);
+    }
+  });
+})();
+
+(function () {
   var heroVideo = document.querySelector(".hero__video");
   if (!heroVideo) return;
 
@@ -128,7 +142,12 @@
   var step3 = form.querySelector('.contact-form__step[data-step="3"]');
   var visiblePath = [step1];
 
+  function hasServiceChoice() {
+    return !!form.querySelector('input[name="service"][type="radio"]');
+  }
+
   function totalSteps() {
+    if (!hasServiceChoice()) return 2;
     var selected = form.querySelector('input[name="service"]:checked');
     if (selected && selected.value === "Inne") return 2;
     return 3;
@@ -149,7 +168,7 @@
   }
 
   function goNext(fromStep) {
-    if (fromStep === step1) {
+    if (fromStep === step1 && hasServiceChoice()) {
       var selected = form.querySelector('input[name="service"]:checked');
       if (!selected) {
         form.querySelector('input[name="service"]').reportValidity();

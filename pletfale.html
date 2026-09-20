@@ -19,7 +19,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css">
   <style>
-    /* Płetfale-specific theme: blue, swimming theme. Overrides the site's default teal-green + off-white. */
+    /* Płetfale-specific theme: blue, swimming theme. Overrides the site's default teal-green + off-white.
+       Layout itself now mirrors index.html section-for-section (see CLAUDE.md); only this palette
+       and the hero media make the page read as Płetfale. */
     body.page--pletfale {
       --color-accent: #6fd1e8;
       --color-accent-dark: #0b3d91;
@@ -38,79 +40,10 @@
       background: #539dae;
     }
 
-    /* Hero depth gradient: dark navy behind the text (keeps WCAG contrast for the light-blue text/button),
-       fading to the vivid surface blue behind the photo on the right. */
-    body.page--pletfale .hero {
-      background: linear-gradient(90deg, #07275c 0%, #0b3d91 50%, #1663c9 100%);
-      position: relative;
-    }
-
-    /* Photo: organic "water droplet" blob instead of a hard rectangle, centered in the media column. */
-    body.page--pletfale .hero__media {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    body.page--pletfale .hero__image {
-      width: min(440px, 72%);
-      height: auto;
-      aspect-ratio: 1 / 1;
-      max-height: none;
-      object-fit: cover;
-      object-position: center 12%;
-      border-radius: 62% 38% 55% 45% / 45% 55% 42% 58%;
-    }
-
-    /* Decorative wave divider, adapted from the pletfale-szkolka reference repo (same blue palette). Anchored to the hero's own bottom edge. */
-    .hero-waves {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      height: clamp(70px, 10vw, 140px);
-      overflow: hidden;
-      pointer-events: none;
-    }
-
-    .hero-waves svg {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 200%;
-      height: 100%;
-    }
-
-    .hero-waves svg:nth-child(1) {
-      animation: pletfale-wave-a 18s linear infinite;
-      opacity: 0.35;
-    }
-
-    .hero-waves svg:nth-child(2) {
-      animation: pletfale-wave-b 26s linear infinite;
-      opacity: 0.6;
-    }
-
-    .hero-waves svg:nth-child(3) {
-      bottom: -1px;
-      animation: pletfale-wave-a 34s linear infinite;
-      opacity: 1;
-    }
-
-    @keyframes pletfale-wave-a {
-      from { transform: translateX(0); }
-      to { transform: translateX(-50%); }
-    }
-
-    @keyframes pletfale-wave-b {
-      from { transform: translateX(-50%); }
-      to { transform: translateX(0); }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .hero-waves svg {
-        animation: none !important;
-      }
+    /* Recolor the contact form's select chevron (see _contact-form.scss) to match this page's
+       navy accent-dark instead of the site-default teal. */
+    body.page--pletfale .contact-form__step select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230b3d91' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
     }
   </style>
 </head>
@@ -125,6 +58,7 @@
           <li><a href="pletfale.html" class="is-active">Płetfale</a></li>
           <li><a href="przygotowanie-fizyczne.html">Przygotowanie Fizyczne</a></li>
           <li><a href="fizjoterapia.html">Fizjoterapia</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
         </ul>
       </nav>
 
@@ -137,7 +71,7 @@
   </header>
 
   <main>
-    <section class="hero">
+    <section class="hero hero--bleed">
       <div class="hero__grid">
         <div class="hero__content">
           <h1 class="hero__title">
@@ -151,84 +85,105 @@
         </div>
 
         <div class="hero__media">
-          <img
-            src="assets/img/kamil-wojnicz-basen.webp"
-            alt="Kamil Wojnicz, trener pływania, przy basenie w Otwocku"
-            class="hero__image"
-            width="700"
-            height="1167"
+          <video
+            class="hero__image hero__video"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="auto"
+            poster="assets/img/kamil-wojnicz-basen.webp"
+            aria-label="Nauka pływania na basenie, wideo w tle"
           >
+            <source src="assets/img/pletfale/plywanie-hover.mp4" type="video/mp4">
+          </video>
         </div>
       </div>
 
-      <div class="hero-waves" aria-hidden="true">
-        <svg viewBox="0 0 1440 160" preserveAspectRatio="none">
-          <path d="M0,90 C120,50 240,130 360,90 C480,50 600,130 720,90 C840,50 960,130 1080,90 C1200,50 1320,130 1440,90 L1440,160 L0,160 Z" fill="#6FD1E8"></path>
-        </svg>
-        <svg viewBox="0 0 1440 160" preserveAspectRatio="none">
-          <path d="M0,110 C160,80 260,150 420,116 C560,86 660,150 820,116 C980,82 1080,150 1240,114 C1340,92 1400,110 1440,104 L1440,160 L0,160 Z" fill="#0B3D91"></path>
-        </svg>
-        <svg viewBox="0 0 1440 160" preserveAspectRatio="none">
-          <path d="M0,128 C180,104 300,146 480,128 C660,110 780,148 960,130 C1140,112 1280,140 1440,126 L1440,161 L0,161 Z" fill="#07275C"></path>
+      <div class="hero__divider" aria-hidden="true">
+        <svg viewBox="0 0 1440 96" preserveAspectRatio="none">
+          <path d="M0,48 C240,88 480,8 720,44 C960,80 1200,16 1440,52 L1440,96 L0,96 Z" fill="#07275c"></path>
         </svg>
       </div>
     </section>
 
-    <section class="levels">
+    <section class="work">
       <div class="container">
-        <div class="levels__header" data-reveal>
-          <h2 class="levels__title">Poziomy nauki</h2>
-          <p class="levels__intro">Od pierwszego kontaktu z wodą po doskonalenie techniki, każdy etap ma swój plan.</p>
+        <div class="work__header" data-reveal>
+          <h2 class="work__title">Poziomy nauki</h2>
+          <p class="work__text">Od pierwszego kontaktu z wodą po doskonalenie techniki, każdy etap ma swój plan.</p>
         </div>
 
-        <div class="levels__grid">
-          <div class="level-card" data-reveal>
-            <svg class="level-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M12 3C12 3 6 10.2 6 14.4a6 6 0 0 0 12 0C18 10.2 12 3 12 3Z"></path>
-            </svg>
-            <span class="level-card__index">01</span>
-            <span class="level-card__title">Oswojenie z wodą</span>
-            <span class="level-card__desc">Pierwszy kontakt z basenem, oddech i unoszenie się na wodzie, bez pośpiechu i bez lęku.</span>
+        <div class="work__grid work__grid--level">
+          <div class="work__card work__card--level work__card--video" data-reveal-fade>
+            <video class="work__card-video" src="assets/img/pletfale/plywanie-hover.mp4" muted loop playsinline preload="metadata"></video>
+            <span class="work__card-scrim"></span>
+            <span class="work__card-body">
+              <span class="work__card-title">Oswojenie z wodą</span>
+              <span class="work__card-desc-group">
+                <span class="work__card-desc work__card-desc--short">Pierwszy kontakt z basenem, bez pośpiechu i bez lęku.</span>
+                <span class="work__card-desc work__card-desc--long">Pierwszy kontakt z basenem, oddech i unoszenie się na wodzie, bez pośpiechu i bez lęku — w tempie dziecka lub dorosłego początkującego.</span>
+              </span>
+            </span>
           </div>
 
-          <div class="level-card" data-reveal>
-            <svg class="level-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M2 8c1.5-1.6 3-1.6 4.5 0s3 1.6 4.5 0 3-1.6 4.5 0 3 1.6 4.5 0"></path>
-              <path d="M2 13.5c1.5-1.6 3-1.6 4.5 0s3 1.6 4.5 0 3-1.6 4.5 0 3 1.6 4.5 0"></path>
-              <path d="M2 19c1.5-1.6 3-1.6 4.5 0s3 1.6 4.5 0 3-1.6 4.5 0 3 1.6 4.5 0"></path>
-            </svg>
-            <span class="level-card__index">02</span>
-            <span class="level-card__title">Nauka pływania</span>
-            <span class="level-card__desc">Podstawowa technika i samodzielne pokonywanie basenu, krok po kroku, w małych grupach lub indywidualnie.</span>
+          <div class="work__card work__card--level" data-reveal-fade>
+            <!-- TODO(TODO.md): placeholder image, replace with a real photo from a Płetfale class -->
+            <img class="work__card-image" src="https://images.unsplash.com/photo-1560089000-7433a4ebbd64?w=900&h=650&fit=crop&q=80" alt="" width="900" height="650">
+            <span class="work__card-scrim"></span>
+            <span class="work__card-body">
+              <span class="work__card-title">Nauka pływania</span>
+              <span class="work__card-desc-group">
+                <span class="work__card-desc work__card-desc--short">Podstawowa technika, krok po kroku.</span>
+                <span class="work__card-desc work__card-desc--long">Podstawowa technika i samodzielne pokonywanie basenu, krok po kroku, w małych grupach lub indywidualnie.</span>
+              </span>
+            </span>
           </div>
 
-          <div class="level-card" data-reveal>
-            <svg class="level-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <circle cx="12" cy="13" r="7"></circle>
-              <path d="M12 13V9"></path>
-              <path d="M12 13l3 2"></path>
-              <path d="M9 3h6"></path>
-              <path d="M12 3v2"></path>
-            </svg>
-            <span class="level-card__index">03</span>
-            <span class="level-card__title">Doskonalenie techniki</span>
-            <span class="level-card__desc">Poprawa stylu, oddechu i tempa dla osób, które już pływają i chcą pływać lepiej.</span>
+          <div class="work__card work__card--level" data-reveal-fade>
+            <img class="work__card-image" src="assets/img/kamil-wojnicz-basen.webp" alt="" width="700" height="1167">
+            <span class="work__card-scrim"></span>
+            <span class="work__card-body">
+              <span class="work__card-title">Doskonalenie techniki</span>
+              <span class="work__card-desc-group">
+                <span class="work__card-desc work__card-desc--short">Lepszy styl, oddech i tempo.</span>
+                <span class="work__card-desc work__card-desc--long">Poprawa stylu, oddechu i tempa dla osób, które już pływają i chcą pływać lepiej.</span>
+              </span>
+            </span>
           </div>
         </div>
         <!-- TODO(TODO.md): add real class schedule, group sizes, and pricing -->
       </div>
     </section>
 
-    <section class="audience">
-      <div class="container">
-        <h2 class="audience__title" data-reveal>Dla kogo</h2>
-        <ul class="audience__list" data-reveal>
-          <li class="audience__pill">Dzieci od najmłodszych lat</li>
-          <li class="audience__pill">Dorośli, którzy nigdy nie pływali</li>
-          <li class="audience__pill">Powrót po dłuższej przerwie</li>
-          <li class="audience__pill">Doskonalenie techniki</li>
-        </ul>
-        <a href="#kontakt" class="btn btn--primary audience__cta" data-reveal>Zapisz się na zajęcia</a>
+    <section class="split split--compact">
+      <div class="container split__grid">
+        <div class="about-photo-text" data-reveal>
+          <h2 class="split__title">Dla kogo są zajęcia</h2>
+          <p class="split__text">Uczę pływać dzieci od najmłodszych lat i dorosłych, którzy nigdy nie mieli okazji się tego nauczyć — każdy zaczyna w swoim tempie, bez porównywania się do innych.</p>
+          <p class="split__text">Prowadzę też osoby wracające do wody po dłuższej przerwie oraz pływających, którzy chcą dopracować technikę i pływać efektywniej.</p>
+        </div>
+        <div class="about-photo" style="--ratio: 700 / 1167; --scroll-height: 115vh;">
+          <div class="about-photo__sticky">
+            <img class="about-photo__img" src="assets/img/kamil-wojnicz-basen.webp" alt="Kamil Wojnicz, trener pływania, przy basenie w Otwocku" width="700" height="1167">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="split split--compact">
+      <div class="container split__grid">
+        <div class="about-photo" style="--ratio: 4 / 5; --scroll-height: 115vh;">
+          <div class="about-photo__sticky">
+            <!-- TODO(TODO.md): placeholder image, replace with a real photo from a Płetfale class -->
+            <img class="about-photo__img" src="https://images.unsplash.com/photo-1600965962361-9035dbfd1c50?w=900&h=1125&fit=crop&q=80" alt="Skok startowy do basenu podczas zajęć pływackich" width="900" height="1125">
+          </div>
+        </div>
+        <div class="about-photo-text" data-reveal>
+          <p class="split__text">Zajęcia prowadzę w małych grupach lub indywidualnie, żeby każdy uczestnik miał realną uwagę instruktora, a nie tylko odliczał długości basenu.</p>
+          <p class="split__text">Bezpieczeństwo w wodzie zawsze na pierwszym miejscu — technikę i tempo dopasowuję do wieku, kondycji i wcześniejszego doświadczenia.</p>
+          <a href="#kontakt" class="btn btn--primary" data-reveal>Zapisz się na zajęcia</a>
+        </div>
       </div>
     </section>
 
@@ -245,7 +200,7 @@
             <img src="https://images.unsplash.com/photo-1560089000-7433a4ebbd64?w=700&h=933&fit=crop&q=80" alt="Pływak w stylu klasycznym na basenie" width="700" height="933">
           </div>
           <div class="gallery__item" data-reveal>
-            <img src="https://images.unsplash.com/photo-1600965962361-9035dbfd1c50?w=700&h=933&fit=crop&q=80" alt="Skok startowy do basenu" width="700" height="933">
+            <img src="assets/img/kamil-wojnicz-basen.webp" alt="Kamil Wojnicz na basenie, przygotowanie do zajęć pływackich" width="700" height="1167">
           </div>
           <div class="gallery__item" data-reveal>
             <img src="https://images.unsplash.com/photo-1540206395-68808572332f?w=700&h=933&fit=crop&q=80" alt="Fale wody widziane z góry" width="700" height="933">
@@ -254,21 +209,123 @@
       </div>
     </section>
 
-    <section class="cta-banner">
-      <div class="cta-banner__divider" aria-hidden="true">
-        <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
-          <path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,0 L0,0 Z" fill="#07275C"></path>
-        </svg>
+    <section class="contact" id="kontakt">
+      <div class="container contact__grid">
+        <div class="contact__info" data-reveal>
+          <h2 class="contact__title">Zapisz się na zajęcia</h2>
+          <p class="contact__text">Napisz kilka słów o tym, kto będzie pływać i na jakim jest poziomie — odezwę się i ustalimy termin.</p>
+
+          <!-- TODO(TODO.md): add real phone / email / address -->
+          <ul class="contact__list">
+            <li>Telefon: dane wkrótce</li>
+            <li>Email: dane wkrótce</li>
+            <li>Otwock, mazowieckie</li>
+          </ul>
+        </div>
+
+        <div class="contact__form-wrap">
+          <div class="contact-form__card">
+            <div class="contact-form__progress">
+              <div class="contact-form__progress-fill" id="contact-form-progress"></div>
+            </div>
+
+            <form class="contact-form" id="contact-form" action="https://formspree.io/f/xkjggeoy" method="POST">
+              <p class="contact-form__status" id="contact-form-status" role="status" aria-live="polite"></p>
+
+              <fieldset class="contact-form__step" data-step="1">
+              <legend>Kilka szczegółów o pływaniu</legend>
+              <input type="hidden" name="service" value="Płetfale">
+              <label class="contact-form__field">
+                <span class="contact-form__field-label">Wiek uczestnika</span>
+                <select name="wiek_uczestnika" data-number-options="1-100"></select>
+              </label>
+              <label class="contact-form__field">
+                <span class="contact-form__field-label">Poziom pływania</span>
+                <select name="poziom_plywania">
+                  <option value="Nie umie pływać">Nie umie pływać</option>
+                  <option value="Podstawy">Podstawy</option>
+                  <option value="Doskonalenie">Doskonalenie</option>
+                </select>
+              </label>
+              <div class="contact-form__actions">
+                <button type="button" class="btn btn--primary" data-next>Dalej</button>
+              </div>
+            </fieldset>
+
+            <fieldset class="contact-form__step" data-step="3" hidden>
+              <legend>Twoje dane</legend>
+              <label class="contact-form__field">
+                <span class="contact-form__field-label">Imię</span>
+                <input type="text" name="imie" required>
+              </label>
+              <label class="contact-form__field">
+                <span class="contact-form__field-label">Telefon lub email</span>
+                <input type="text" name="kontakt" required>
+              </label>
+              <label class="contact-form__field">
+                <span class="contact-form__field-label">Wiadomość</span>
+                <textarea name="wiadomosc" rows="3"></textarea>
+              </label>
+
+              <input type="text" name="_gotcha" class="contact-form__honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+              <input type="hidden" name="_subject" value="Nowe zapytanie ze strony Płetfale">
+
+              <div class="contact-form__actions">
+                <button type="button" class="btn btn--ghost" data-back>Wstecz</button>
+                <button type="submit" class="button">
+                  <div class="outline"></div>
+                  <div class="state state--default">
+                    <div class="icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" height="1em" width="1em">
+                        <g style="filter: url(#pletfale-contact-form-send-shadow)">
+                          <path fill="currentColor" d="M12 2C12 2 5 10.5 5 15.5C5 19.09 8.13 22 12 22C15.87 22 19 19.09 19 15.5C19 10.5 12 2 12 2Z"></path>
+                      </g>
+                      <defs>
+                        <filter id="pletfale-contact-form-send-shadow">
+                          <fedropshadow flood-opacity="0.5" stdDeviation="0.6" dy="1" dx="0"></fedropshadow>
+                        </filter>
+                      </defs>
+                    </svg>
+                  </div>
+                  <p>
+                    <span style="--i:0">W</span>
+                    <span style="--i:1">y</span>
+                    <span style="--i:2">ś</span>
+                    <span style="--i:3">l</span>
+                    <span style="--i:4">i</span>
+                    <span style="--i:5">j</span>
+                  </p>
+                </div>
+                <div class="state state--sent">
+                  <div class="icon">
+                    <svg stroke="black" stroke-width="0.5px" width="1em" height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <g style="filter: url(#pletfale-contact-form-send-shadow)">
+                        <path d="M12 22.75C6.07 22.75 1.25 17.93 1.25 12C1.25 6.07 6.07 1.25 12 1.25C17.93 1.25 22.75 6.07 22.75 12C22.75 17.93 17.93 22.75 12 22.75ZM12 2.75C6.9 2.75 2.75 6.9 2.75 12C2.75 17.1 6.9 21.25 12 21.25C17.1 21.25 21.25 17.1 21.25 12C21.25 6.9 17.1 2.75 12 2.75Z" fill="currentColor"></path>
+                        <path d="M10.5795 15.5801C10.3795 15.5801 10.1895 15.5001 10.0495 15.3601L7.21945 12.5301C6.92945 12.2401 6.92945 11.7601 7.21945 11.4701C7.50945 11.1801 7.98945 11.1801 8.27945 11.4701L10.5795 13.7701L15.7195 8.6301C16.0095 8.3401 16.4895 8.3401 16.7795 8.6301C17.0695 8.9201 17.0695 9.4001 16.7795 9.6901L11.1095 15.3601C10.9695 15.5001 10.7795 15.5801 10.5795 15.5801Z" fill="currentColor"></path>
+                      </g>
+                    </svg>
+                  </div>
+                  <p>
+                    <span style="--i:0">W</span>
+                    <span style="--i:1">y</span>
+                    <span style="--i:2">s</span>
+                    <span style="--i:3">ł</span>
+                    <span style="--i:4">a</span>
+                    <span style="--i:5">n</span>
+                    <span style="--i:6">o</span>
+                  </p>
+                </div>
+              </button>
+            </div>
+            </fieldset>
+          </form>
+        </div>
       </div>
-      <div class="container cta-banner__inner" data-reveal>
-        <h2 class="cta-banner__title">Gotowi na pierwsze zajęcia?</h2>
-        <p class="cta-banner__text">Napisz lub zadzwoń, ustalimy termin dopasowany do Twojego kalendarza.</p>
-        <a href="#kontakt" class="btn btn--primary cta-banner__cta">Zapisz się na zajęcia</a>
-      </div>
-    </section>
+    </div>
+  </section>
   </main>
 
-  <footer class="site-footer" id="kontakt">
+  <footer class="site-footer">
     <div class="container footer__grid">
       <div>
         <h2 class="footer__heading">Kamil Wojnicz</h2>

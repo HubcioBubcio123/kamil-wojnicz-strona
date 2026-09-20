@@ -3,8 +3,8 @@
 
 .contact {
   padding-block: $space-2xl;
-  background: $color-bg;
-  color: $color-text;
+  background: var(--color-bg);
+  color: var(--color-text);
 }
 
 .contact__grid {
@@ -22,7 +22,7 @@
 .contact__text {
   margin-top: $space-sm;
   max-width: 30rem;
-  color: $color-text-muted;
+  color: var(--color-text-muted);
 }
 
 .contact__list {

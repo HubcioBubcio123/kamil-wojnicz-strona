@@ -94,3 +94,24 @@ p {
     transition: none;
   }
 }
+
+// Cross-document View Transitions: native browser cross-fade between same-origin page loads
+// (e.g. nav clicks between index.html and pletfale.html), no JS/router needed. Unsupported
+// browsers (Firefox, Safari as of writing) just navigate normally — this is pure enhancement.
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.45s;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@include reduced-motion {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}

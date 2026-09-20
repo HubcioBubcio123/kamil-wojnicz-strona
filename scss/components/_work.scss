@@ -90,6 +90,20 @@
   z-index: 2;
 }
 
+// Equal 3-column variant: a sequence of steps (e.g. Płetfale's poziomy nauki), not one
+// featured card among lesser ones, so no asymmetric span/fixed-row layout is needed.
+.work__grid--level {
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: none;
+}
+
+.work__card--level:hover,
+.work__card--level:focus-visible {
+  transform: scale(1.05);
+  box-shadow: 0 1.5rem 3rem rgba(10, 14, 12, 0.35);
+  z-index: 2;
+}
+
 // Whichever card is hovered/focused grows (rules above); every other card yields to make room.
 .work__grid:has(.work__card:hover) .work__card:not(:hover),
 .work__grid:has(.work__card:focus-visible) .work__card:not(:focus-visible) {
