@@ -8,7 +8,7 @@ Tracks every placeholder currently in the site. Nothing here blocks the site fro
 - [ ] `index.html` work section — replace 3 stock placeholders (Płetfale, Przygotowanie Fizyczne, Fizjoterapia cards) with real photos, save as `.webp` in `assets/img/`
 - [x] `pletfale.html` hero — now uses `assets/img/pletfale/plywanie-hover.mp4` as a full-bleed background video (poster: `kamil-wojnicz-basen.webp`), matching `index.html`'s hero pattern.
 - [ ] `pletfale.html` "Poziomy nauki" cards — 1 of 3 uses real media (`plywanie-hover.mp4`); the other 2 use Unsplash/repeat placeholders, replace with real photos/video per level, save as `.webp`/`.mp4`
-- [ ] `pletfale.html` "Dla kogo" split sections — 2nd photo is an Unsplash placeholder, replace with a real Płetfale class photo, save as `.webp`
+- [x] `pletfale.html` "Dla kogo" second split (photo left, Unsplash placeholder + "Zajęcia prowadzę w małych grupach..." text) — removed per request; the page now has one "Dla kogo są zajęcia" split, followed by the pricing panel.
 - [ ] `przygotowanie-fizyczne.html` hero — replace stock gym photo (same Unsplash photo as homepage hero) with a real training photo, save as `.webp`
 - [ ] `fizjoterapia.html` split section — replace stock manual-therapy photo (Unsplash) with a real photo from Kamil's practice, save as `.webp`
 - [ ] `index.html` "W akcji" gallery — 1 of 3 stock placeholders replaced (`kamil-wojnicz-basen.webp`); 2 remain, replace with real photos from sessions, save as `.webp`
@@ -24,6 +24,10 @@ Tracks every placeholder currently in the site. Nothing here blocks the site fro
 - [ ] Add real `telephone` / `streetAddress` to the homepage's `LocalBusiness` JSON-LD once available (currently omitted rather than faked).
 - [ ] Once Przygotowanie Fizyczne / Fizjoterapia pages get real content, update their `sitemap.xml` priority and `og:image` if a themed photo replaces the generic gym stock photo.
 
+## Pricing
+
+- [ ] `pletfale.html` "Cennik zajęć" section — 3 tier cards (indywidualne / mała grupa / karnet miesięczny) with placeholder names, features, and "cena: do ustalenia" amounts, added as a visual cennik section per request. Replace with real prices, and confirm whether the 3 tiers/features match what's actually offered.
+
 ## Content
 
 - [ ] About me section (`index.html`) — add real certifications, qualifications, years of experience. No fake numbers were added; the section currently has bio prose only.
@@ -32,7 +36,7 @@ Tracks every placeholder currently in the site. Nothing here blocks the site fro
 
 ## Subpages
 
-- [x] `pletfale.html` — redesigned to mirror `index.html`'s section structure (bleed-video hero, work-style card grid, two about-photo splits, gallery) with the page's own blue theme, per request. Still needs: real class schedule, group sizes, pricing.
+- [x] `pletfale.html` — redesigned to mirror `index.html`'s section structure (bleed-video hero, work-style card grid, about-photo split, gallery) with the page's own blue theme, per request; now also has a "Cennik zajęć" pricing panel placed right after "Dla kogo są zajęcia" (see Pricing above). Still needs: real class schedule, group sizes, real prices.
 - [x] `przygotowanie-fizyczne.html` — prose content built (hero, offer, audience, CTA), dark/amber theme. Still needs: real pricing, session length, package options.
 - [x] `fizjoterapia.html` — content built (text-only hero, "Co leczę" conditions list, "Jak wygląda wizyta" image+text split, CTA), violet theme. Still needs: confirm real treated-conditions list, real practice photo.
 

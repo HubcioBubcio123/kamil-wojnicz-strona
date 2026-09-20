@@ -152,7 +152,7 @@
             </span>
           </div>
         </div>
-        <!-- TODO(TODO.md): add real class schedule, group sizes, and pricing -->
+        <!-- TODO(TODO.md): add real class schedule and group sizes -->
       </div>
     </section>
 
@@ -171,18 +171,83 @@
       </div>
     </section>
 
-    <section class="split split--compact">
-      <div class="container split__grid">
-        <div class="about-photo" style="--ratio: 4 / 5; --scroll-height: 115vh;">
-          <div class="about-photo__sticky">
-            <!-- TODO(TODO.md): placeholder image, replace with a real photo from a Płetfale class -->
-            <img class="about-photo__img" src="https://images.unsplash.com/photo-1600965962361-9035dbfd1c50?w=900&h=1125&fit=crop&q=80" alt="Skok startowy do basenu podczas zajęć pływackich" width="900" height="1125">
+    <section class="pricing">
+      <div class="container">
+        <!-- TODO(TODO.md): placeholder tiers/features and "cena: do ustalenia" amounts, replace with real pricing -->
+        <div class="pricing-pool" data-reveal>
+          <div class="pricing-pool__waves" aria-hidden="true">
+            <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+              <path d="M0,60 C120,30 240,90 360,60 C480,30 600,90 720,60 C840,30 960,90 1080,60 C1200,30 1320,90 1440,60 L1440,0 L0,0 Z" fill="#6FD1E8"></path>
+            </svg>
+            <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+              <path d="M0,70 C160,45 260,95 420,72 C560,52 660,95 820,72 C980,50 1080,95 1240,70 C1340,58 1400,66 1440,62 L1440,0 L0,0 Z" fill="#0B3D91"></path>
+            </svg>
           </div>
-        </div>
-        <div class="about-photo-text" data-reveal>
-          <p class="split__text">Zajęcia prowadzę w małych grupach lub indywidualnie, żeby każdy uczestnik miał realną uwagę instruktora, a nie tylko odliczał długości basenu.</p>
-          <p class="split__text">Bezpieczeństwo w wodzie zawsze na pierwszym miejscu — technikę i tempo dopasowuję do wieku, kondycji i wcześniejszego doświadczenia.</p>
-          <a href="#kontakt" class="btn btn--primary" data-reveal>Zapisz się na zajęcia</a>
+
+          <div class="pricing-pool__header">
+            <h2 class="pricing-pool__title">Cennik zajęć</h2>
+            <p class="pricing-pool__intro">Dokładną cenę i terminy ustalamy indywidualnie — poniżej orientacyjny zakres form zajęć.</p>
+          </div>
+
+          <div class="pricing-pool__tiers">
+            <div class="pricing-tier" data-reveal>
+              <svg class="pricing-tier__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="7.5" r="3.2"></circle>
+                <path d="M5 20c0-4.2 3.13-6.5 7-6.5s7 2.3 7 6.5"></path>
+              </svg>
+              <span class="pricing-tier__name">Zajęcia indywidualne</span>
+              <span class="pricing-tier__price">cena: <span class="pricing-tier__amount">do ustalenia</span></span>
+              <ul class="pricing-tier__features">
+                <li>Pełna uwaga instruktora przez całe zajęcia</li>
+                <li>Program dopasowany do jednej osoby</li>
+                <li>Elastyczne terminy</li>
+              </ul>
+              <a href="#kontakt" class="btn btn--primary pricing-tier__cta">Zapytaj o termin</a>
+            </div>
+
+            <div class="pricing-tier pricing-tier--featured" data-reveal>
+              <span class="pricing-tier__badge">Najczęściej wybierane</span>
+              <svg class="pricing-tier__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="8.5" cy="7.5" r="2.6"></circle>
+                <circle cx="16" cy="8.5" r="2.2"></circle>
+                <path d="M3.5 19.5c0-3.6 2.5-5.6 5.7-5.6s5.7 2 5.7 5.6"></path>
+                <path d="M15 14.3c2.6 0.2 4.5 2 4.5 5.2"></path>
+              </svg>
+              <span class="pricing-tier__name">Zajęcia w małej grupie</span>
+              <span class="pricing-tier__price">cena: <span class="pricing-tier__amount">do ustalenia</span></span>
+              <ul class="pricing-tier__features">
+                <li>Do 4 osób na poziomie w grupie</li>
+                <li>Nauka i doskonalenie techniki</li>
+                <li>Stały termin co tydzień</li>
+              </ul>
+              <a href="#kontakt" class="btn btn--primary pricing-tier__cta">Zapisz się</a>
+            </div>
+
+            <div class="pricing-tier" data-reveal>
+              <svg class="pricing-tier__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3.5" y="7" width="17" height="10" rx="2"></rect>
+                <path d="M12 7v10" stroke-dasharray="1.6 2.2"></path>
+                <path d="M6.5 10.2h1.4M6.5 13.8h1.4M16.1 10.2h1.4M16.1 13.8h1.4"></path>
+              </svg>
+              <span class="pricing-tier__name">Karnet miesięczny</span>
+              <span class="pricing-tier__price">cena: <span class="pricing-tier__amount">do ustalenia</span></span>
+              <ul class="pricing-tier__features">
+                <li>4 zajęcia w miesiącu</li>
+                <li>Korzystniejsza cena niż pojedyncze wejścia</li>
+                <li>Możliwość odrobienia zajęć</li>
+              </ul>
+              <a href="#kontakt" class="btn btn--primary pricing-tier__cta">Zapytaj o karnet</a>
+            </div>
+          </div>
+
+          <div class="pricing-pool__waves pricing-pool__waves--bottom" aria-hidden="true">
+            <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+              <path d="M0,60 C120,90 240,30 360,60 C480,90 600,30 720,60 C840,90 960,30 1080,60 C1200,90 1320,30 1440,60 L1440,120 L0,120 Z" fill="#0B3D91"></path>
+            </svg>
+            <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+              <path d="M0,50 C160,75 260,25 420,48 C560,68 660,25 820,48 C980,70 1080,25 1240,50 C1340,62 1400,54 1440,58 L1440,120 L0,120 Z" fill="#6FD1E8"></path>
+            </svg>
+          </div>
         </div>
       </div>
     </section>

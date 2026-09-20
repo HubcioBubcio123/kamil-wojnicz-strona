@@ -1,0 +1,247 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.pricing {
+  padding-block: $space-2xl;
+}
+
+// One big "pool window" panel holds the whole cennik (title + tiers) instead of a header
+// plus separate floating cards — a single frame with a water-depth gradient and animated
+// wave bands top and bottom, echoing the hero's swim motif.
+.pricing-pool {
+  position: relative;
+  overflow: hidden;
+  border-radius: $radius;
+  border: 1px solid var(--color-border);
+  padding: clamp(3.5rem, 7vw, 5rem) $space-lg $space-lg;
+  background: linear-gradient(180deg, var(--color-bg-alt) 0%, var(--color-accent-dark) 100%);
+}
+
+.pricing-pool__waves {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: clamp(48px, 8vw, 90px);
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.pricing-pool__waves--bottom {
+  top: auto;
+  bottom: 0;
+}
+
+.pricing-pool__waves svg {
+  position: absolute;
+  left: 0;
+  width: 200%;
+  height: 100%;
+}
+
+.pricing-pool__waves svg:nth-child(1) {
+  top: 0;
+  animation: pricing-wave-a 16s linear infinite;
+  opacity: 0.35;
+}
+
+.pricing-pool__waves svg:nth-child(2) {
+  top: 0;
+  animation: pricing-wave-b 22s linear infinite;
+  opacity: 0.55;
+}
+
+.pricing-pool__waves--bottom svg {
+  top: auto;
+  bottom: 0;
+}
+
+@keyframes pricing-wave-a {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes pricing-wave-b {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+
+@include reduced-motion {
+  .pricing-pool__waves svg {
+    animation: none !important;
+  }
+}
+
+.pricing-pool__header {
+  position: relative;
+  z-index: 1;
+  max-width: 50ch;
+  margin-bottom: $space-xl;
+}
+
+.pricing-pool__title {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.pricing-pool__intro {
+  margin-top: $space-sm;
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+}
+
+.pricing-pool__tiers {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $space-lg;
+}
+
+.pricing-tier {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+// Stagger the scroll-reveal across the row so the three tiers cascade in one after another
+// instead of fading in all at once (the outer .pricing-pool already reveals as a whole first).
+.pricing-tier[data-reveal] {
+  transition-delay: 0.1s;
+}
+
+.pricing-pool__tiers > :nth-child(2)[data-reveal] {
+  transition-delay: 0.22s;
+}
+
+.pricing-pool__tiers > :nth-child(3)[data-reveal] {
+  transition-delay: 0.34s;
+}
+
+// Wavy divider between tiers, instead of a straight rule, so the "one big window" still
+// reads as a pool rather than a plain 3-column table.
+.pricing-tier:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: calc(#{$space-lg} / -2 - 7px);
+  width: 14px;
+  background: var(--color-accent);
+  opacity: 0.45;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 40'%3E%3Cpath d='M7,0 C14,5 0,15 7,20 C14,25 0,35 7,40'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 40'%3E%3Cpath d='M7,0 C14,5 0,15 7,20 C14,25 0,35 7,40'/%3E%3C/svg%3E");
+  -webkit-mask-repeat: repeat-y;
+  mask-repeat: repeat-y;
+  -webkit-mask-size: 14px 40px;
+  mask-size: 14px 40px;
+}
+
+// Featured tier gets a soft highlight tint rather than its own bordered card, so it stands
+// out without breaking the single-panel feel.
+.pricing-tier--featured {
+  padding: $space-md;
+  margin: (-$space-md) 0;
+  border-radius: $radius;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.pricing-tier__badge {
+  display: inline-block;
+  align-self: flex-start;
+  margin-bottom: $space-sm;
+  padding: 0.3rem 0.8rem;
+  border-radius: $radius-pill;
+  background: var(--color-accent);
+  color: var(--color-accent-contrast);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.pricing-tier__icon {
+  width: 32px;
+  height: 32px;
+  color: var(--color-accent-text);
+}
+
+.pricing-tier__name {
+  display: block;
+  margin-top: $space-md;
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: 1.15rem;
+}
+
+.pricing-tier__price {
+  display: block;
+  margin-top: $space-sm;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+.pricing-tier__amount {
+  color: var(--color-text);
+  font-weight: 700;
+}
+
+.pricing-tier__features {
+  margin: $space-md 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  flex-grow: 1;
+}
+
+.pricing-tier__features li {
+  position: relative;
+  padding-left: 1.4rem;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.pricing-tier__features li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.5em;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+
+.pricing-tier__cta {
+  margin-top: $space-lg;
+  align-self: flex-start;
+}
+
+@include respond(md) {
+  .pricing-pool__tiers {
+    grid-template-columns: 1fr;
+    gap: $space-xl;
+  }
+
+  // Divider flips to a horizontal wave between stacked tiers.
+  .pricing-tier:not(:last-child)::after {
+    top: auto;
+    right: 0;
+    left: 0;
+    bottom: calc(#{$space-xl} / -2 - 7px);
+    width: 100%;
+    height: 14px;
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 14'%3E%3Cpath d='M0,7 C5,0 15,0 20,7 C25,14 35,14 40,7'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 14'%3E%3Cpath d='M0,7 C5,0 15,0 20,7 C25,14 35,14 40,7'/%3E%3C/svg%3E");
+    -webkit-mask-repeat: repeat-x;
+    mask-repeat: repeat-x;
+    -webkit-mask-size: 40px 14px;
+    mask-size: 40px 14px;
+  }
+
+  .pricing-tier--featured {
+    margin: 0;
+  }
+}
