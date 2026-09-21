@@ -26,7 +26,7 @@ Tracks every placeholder currently in the site. Nothing here blocks the site fro
 
 ## Pricing
 
-- [ ] `pletfale.html` "Cennik zajęć" section — 3 tier cards (indywidualne / mała grupa / karnet miesięczny) with placeholder names, features, and "cena: do ustalenia" amounts, added as a visual cennik section per request. Replace with real prices, and confirm whether the 3 tiers/features match what's actually offered.
+- [ ] `pletfale.html` "Cennik zajęć" section — 2 tiers (indywidualne / dwuosobowe), each with a 30/45/60 min duration toggle. Every duration button's `data-price` is still the placeholder "do ustalenia" (identical across all 3, per tier) — replace each with its own real amount once pricing is set, and confirm whether the 2 tiers/features match what's actually offered.
 
 ## Content
 

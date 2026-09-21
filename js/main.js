@@ -12,6 +12,29 @@
 })();
 
 (function () {
+  document.querySelectorAll(".pricing-tier__durations").forEach(function (group) {
+    var tier = group.closest(".pricing-tier");
+    if (!tier) return;
+    var minutesEl = tier.querySelector(".pricing-tier__minutes");
+    var amountEl = tier.querySelector(".pricing-tier__amount");
+    var buttons = group.querySelectorAll(".pricing-tier__duration");
+
+    buttons.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        buttons.forEach(function (b) {
+          b.classList.remove("is-active");
+          b.setAttribute("aria-pressed", "false");
+        });
+        btn.classList.add("is-active");
+        btn.setAttribute("aria-pressed", "true");
+        if (minutesEl) minutesEl.textContent = btn.dataset.minutes;
+        if (amountEl) amountEl.textContent = btn.dataset.price;
+      });
+    });
+  });
+})();
+
+(function () {
   var heroVideo = document.querySelector(".hero__video");
   if (!heroVideo) return;
 
