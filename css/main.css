@@ -1321,6 +1321,13 @@ p {
   font-weight: 700;
 }
 
+.pricing-tier__note {
+  display: block;
+  margin-top: 0.3rem;
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+}
+
 .pricing-tier__features {
   margin: 2.5rem 0 0;
   padding: 0;
