@@ -1328,11 +1328,27 @@ p {
   font-size: 1.4rem;
 }
 
+.pricing-tier__price--hero {
+  font-size: 1.1rem;
+  color: var(--color-text);
+}
+
+.pricing-tier__hero-amount {
+  color: var(--color-text);
+  font-weight: 700;
+  font-size: 1.8rem;
+}
+
 .pricing-tier__note {
   display: block;
   margin-top: 0.3rem;
   color: var(--color-text-muted);
   font-size: 0.8rem;
+}
+
+.pricing-tier__note .pricing-tier__amount {
+  font-size: inherit;
+  font-weight: 700;
 }
 
 .pricing-tier__features {
