@@ -229,6 +229,10 @@ $pricing-tier-gap: 7rem;
   font-size: 0.95rem;
 }
 
+.pricing-tier__price[hidden] {
+  display: none;
+}
+
 .pricing-tier__amount {
   color: var(--color-text);
   font-weight: 700;

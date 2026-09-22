@@ -17,6 +17,8 @@
     if (!tier) return;
     var minutesEl = tier.querySelector(".pricing-tier__minutes");
     var amountEl = tier.querySelector(".pricing-tier__amount");
+    var singleEl = tier.querySelector(".pricing-tier__price--single");
+    var karnetEl = tier.querySelector(".pricing-tier__price--karnet");
     var buttons = group.querySelectorAll(".pricing-tier__duration");
 
     buttons.forEach(function (btn) {
@@ -29,6 +31,11 @@
         btn.setAttribute("aria-pressed", "true");
         if (minutesEl) minutesEl.textContent = btn.dataset.minutes;
         if (amountEl) amountEl.textContent = btn.dataset.price;
+        if (singleEl && karnetEl) {
+          var isSingleDuration = btn.dataset.minutes === singleEl.dataset.minutesOnly;
+          singleEl.hidden = !isSingleDuration;
+          karnetEl.hidden = isSingleDuration;
+        }
       });
     });
   });
