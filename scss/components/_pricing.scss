@@ -86,6 +86,12 @@
   font-size: 1.05rem;
 }
 
+.pricing-pool__disclaimer {
+  margin-top: $space-xs;
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+}
+
 // Shared by the grid gap and the divider's centering calc below, so the space on either
 // side of the wave stays equal no matter what this value is tuned to later.
 $pricing-tier-gap: 7rem;
@@ -226,6 +232,7 @@ $pricing-tier-gap: 7rem;
 .pricing-tier__amount {
   color: var(--color-text);
   font-weight: 700;
+  font-size: 1.4rem;
 }
 
 .pricing-tier__note {

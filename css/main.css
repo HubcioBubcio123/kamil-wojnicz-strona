@@ -1181,6 +1181,12 @@ p {
   font-size: 1.05rem;
 }
 
+.pricing-pool__disclaimer {
+  margin-top: 0.5rem;
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+}
+
 .pricing-pool__tiers {
   position: relative;
   z-index: 1;
@@ -1319,6 +1325,7 @@ p {
 .pricing-tier__amount {
   color: var(--color-text);
   font-weight: 700;
+  font-size: 1.4rem;
 }
 
 .pricing-tier__note {
