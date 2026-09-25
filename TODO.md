@@ -9,7 +9,7 @@ Tracks every placeholder currently in the site. Nothing here blocks the site fro
 - [x] `pletfale.html` hero — now uses `assets/img/pletfale/plywanie-hover.mp4` as a full-bleed background video (poster: `kamil-wojnicz-basen.webp`), matching `index.html`'s hero pattern.
 - [ ] `pletfale.html` "Poziomy nauki" cards — 2 of 3 use real video (`plywanie-lekcja.mp4`, `plywanie-nauka.mp4`); the 3rd (Doskonalenie techniki) still uses a repeat `.webp` placeholder, replace with real photo/video, save as `.webp`/`.mp4`
 - [x] `pletfale.html` "Dla kogo" second split (photo left, Unsplash placeholder + "Zajęcia prowadzę w małych grupach..." text) — removed per request; the page now has one "Dla kogo są zajęcia" split, followed by the pricing panel.
-- [ ] `przygotowanie-fizyczne.html` hero — replace stock gym photo (same Unsplash photo as homepage hero) with a real training photo, save as `.webp`
+- [x] `przygotowanie-fizyczne.html` hero — now a full-bleed background video of Kamil training (`assets/img/przygotowanie-fizyczne/przygotowanie-fizyczne-hero.mp4`, compressed from the supplied 1080p `KamilHero.mp4`; poster is a frame from the same clip, `przygotowanie-fizyczne-hero-poster.webp`), matching the homepage and Płetfale hero pattern.
 - [ ] `fizjoterapia.html` split section — replace stock manual-therapy photo (Unsplash) with a real photo from Kamil's practice, save as `.webp`
 - [ ] `index.html` "W akcji" gallery — 1 of 3 stock placeholders replaced (`kamil-wojnicz-basen.webp`); 2 remain, replace with real photos from sessions, save as `.webp`
 - [ ] `pletfale.html` "Z basenu" gallery — 1 of 3 stock placeholders replaced (`kamil-wojnicz-basen.webp`); 2 remain, replace with real Płetfale class photos, save as `.webp`

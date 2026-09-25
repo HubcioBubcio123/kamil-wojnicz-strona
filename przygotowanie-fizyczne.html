@@ -22,7 +22,8 @@
     /* Przygotowanie Fizyczne-specific theme: dark, amber accent. Overrides the site's default teal-green + off-white. */
     body.page--przygotowanie-fizyczne {
       --color-accent: #e0812f;
-      --color-accent-dark: #be6a1f;
+      /* Button hover background. Was #be6a1f, which gave the dark button text only 4.45:1; this keeps 4.7:1. */
+      --color-accent-dark: #c46d20;
       --color-accent-text: #e0812f;
       --color-accent-contrast: #18181a;
       --color-bg: #18181a;
@@ -31,6 +32,13 @@
       --color-text-muted: #9a968f;
       --color-border: rgba(242, 239, 234, 0.1);
       --color-border-header: rgba(224, 129, 47, 0.22);
+    }
+
+    /* The shared video hero hardcodes a mint subtitle from the homepage's green palette, which clashes
+       with this page's amber. Light amber stays above 4.5:1 contrast even where the video is brightest
+       behind the scrim. */
+    body.page--przygotowanie-fizyczne .hero--bleed .hero__subtitle {
+      color: #f5b97f;
     }
   </style>
 </head>
@@ -58,19 +66,8 @@
   </header>
 
   <main>
-    <section class="hero hero--mirror">
+    <section class="hero hero--bleed">
       <div class="hero__grid">
-        <div class="hero__media">
-          <!-- TODO(TODO.md): placeholder image, replace with real training photo -->
-          <img
-            src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=1200&h=1500&fit=crop&q=80"
-            alt="Przygotowanie fizyczne z Kamilem Wojniczem w Otwocku"
-            class="hero__image"
-            width="1200"
-            height="1500"
-          >
-        </div>
-
         <div class="hero__content">
           <h1 class="hero__title">
             Przygotowanie Fizyczne
@@ -81,6 +78,27 @@
           </p>
           <a href="#kontakt" class="btn btn--primary hero__cta">Umów konsultację</a>
         </div>
+
+        <div class="hero__media">
+          <video
+            class="hero__image hero__video"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="auto"
+            poster="assets/img/przygotowanie-fizyczne/przygotowanie-fizyczne-hero-poster.webp"
+            aria-label="Kamil Wojnicz podczas treningu na siłowni, wideo w tle"
+          >
+            <source src="assets/img/przygotowanie-fizyczne/przygotowanie-fizyczne-hero.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+      <div class="hero__divider" aria-hidden="true">
+        <svg viewBox="0 0 1440 96" preserveAspectRatio="none">
+          <path d="M0,48 C240,88 480,8 720,44 C960,80 1200,16 1440,52 L1440,96 L0,96 Z" fill="#18181a"></path>
+        </svg>
       </div>
     </section>
 

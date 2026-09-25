@@ -61,21 +61,6 @@
   object-position: top center;
 }
 
-/* Mirrored split: image on the left, content on the right. Used to give a subpage its own hero composition
-   instead of repeating the homepage/Płetfale text-left layout. */
-.hero--mirror .hero__grid {
-  grid-template-columns: 1fr minmax(0, 640px);
-}
-
-.hero--mirror .hero__content {
-  padding-left: $space-xl;
-  padding-right: max($container-pad, calc((100vw - #{$container-max}) / 2 + #{$container-pad}));
-}
-
-.hero--mirror .hero__media {
-  justify-self: start;
-}
-
 /* Text-only hero, no media column. Calmer, trust-first composition for pages that don't lead with a photo. */
 .hero--solo .hero__grid {
   grid-template-columns: 1fr;
@@ -196,20 +181,17 @@
 }
 
 @include respond(lg) {
-  .hero__grid,
-  .hero--mirror .hero__grid {
+  .hero__grid {
     grid-template-columns: 1fr;
   }
 
-  .hero__content,
-  .hero--mirror .hero__content {
+  .hero__content {
     padding-left: $container-pad;
     padding-right: $container-pad;
     padding-bottom: $space-lg;
   }
 
-  .hero__media,
-  .hero--mirror .hero__media {
+  .hero__media {
     justify-self: stretch;
   }
 
