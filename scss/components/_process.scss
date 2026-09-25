@@ -35,6 +35,8 @@
 
 .process__step-image {
   width: 100%;
+  // Without height: auto, the <img> height attribute wins and aspect-ratio never applies.
+  height: auto;
   aspect-ratio: 4 / 3;
   object-fit: cover;
   border-radius: $radius;
