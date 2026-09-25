@@ -52,12 +52,14 @@
 
   // iOS refuses to autoplay in Low Power Mode and draws its own play button over the
   // video instead. The video is only a backdrop, so when playback is refused, hide it
-  // and show its poster photo as the hero background.
+  // and show its poster photo (if it has one) as the hero background.
   var attempt = heroVideo.play();
   if (attempt && typeof attempt.catch === "function") {
     attempt.catch(function (err) {
       if (err && err.name === "AbortError") return;
-      heroVideo.parentElement.style.backgroundImage = 'url("' + heroVideo.poster + '")';
+      if (heroVideo.poster) {
+        heroVideo.parentElement.style.backgroundImage = 'url("' + heroVideo.poster + '")';
+      }
       heroVideo.hidden = true;
     });
   }
