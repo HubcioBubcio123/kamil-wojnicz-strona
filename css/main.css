@@ -1402,7 +1402,6 @@ p {
   margin: 0;
   padding: 0;
   list-style: none;
-  border-top: 1px solid var(--color-border);
 }
 
 .price-list__row {
@@ -1411,8 +1410,12 @@ p {
   column-gap: 1.5rem;
   row-gap: 0.25rem;
   align-items: baseline;
-  padding-block: 1.5rem;
+  padding: 1.5rem 0;
   border-bottom: 1px solid var(--color-border);
+}
+
+.price-list__row:first-child {
+  border-top: 1px solid var(--color-border);
 }
 
 .price-list__name {
