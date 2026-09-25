@@ -13,7 +13,7 @@ Tracks every placeholder currently in the site. Nothing here blocks the site fro
 - [ ] `fizjoterapia.html` split section — replace stock manual-therapy photo (Unsplash) with a real photo from Kamil's practice, save as `.webp`
 - [ ] `index.html` "W akcji" gallery — 1 of 3 stock placeholders replaced (`kamil-wojnicz-basen.webp`); 2 remain, replace with real photos from sessions, save as `.webp`
 - [ ] `pletfale.html` "Z basenu" gallery — 1 of 3 stock placeholders replaced (`kamil-wojnicz-basen.webp`); 2 remain, replace with real Płetfale class photos, save as `.webp`
-- [ ] `przygotowanie-fizyczne.html` "Z sali" gallery — replace 4 stock placeholders with real training-session photos, save as `.webp`
+- [x] `przygotowanie-fizyczne.html` "Z sali" gallery — removed per request; a placeholder "Cennik" price list sits in its place (see Pricing).
 - [ ] `fizjoterapia.html` "Ruch i regeneracja" gallery — replace 2 stock placeholders with real photos, save as `.webp`
 - [x] `przygotowanie-fizyczne.html` process steps — 3 real photos of Kamil from `KamilGoogleDISC/` (HEIC originals copied to `assets/source/KamilPhotos/`), cropped to 4:3 and saved as `.webp` in `assets/img/przygotowanie-fizyczne/`.
 - [ ] `fizjoterapia.html` "Co leczę" aside — replace stock placeholder with a real photo, save as `.webp`
@@ -28,6 +28,7 @@ Tracks every placeholder currently in the site. Nothing here blocks the site fro
 
 - [x] `pletfale.html` "Cennik zajęć" section — real prices set. Zajęcia indywidualne: karnet 4x 30/45/60 min = 600/800/1100 zł, plus pojedyncza lekcja 30 min = 200 zł. Zajęcia dwuosobowe: karnet 4x 30/45/60 min = 400/550/700 zł per person. The asterisk note says prices don't include the pool entry ticket.
 - [ ] `pletfale.html` "Cennik zajęć" — confirm the intro sentence ("Dokładną cenę i terminy ustalamy indywidualnie...") and the 3 "Zajęcia dwuosobowe" feature bullets. Both are still draft copy; only the indywidualne bullets have been updated to real ones.
+- [ ] `przygotowanie-fizyczne.html` "Cennik" price list — all placeholder. 4 rows (Konsultacja i ocena, Trening indywidualny, Karnet 4 treningi, Karnet 8 treningów), every price "do ustalenia", intro and row descriptions are draft copy. Replace with the real services, session lengths and prices.
 
 ## Content
 
@@ -38,7 +39,7 @@ Tracks every placeholder currently in the site. Nothing here blocks the site fro
 ## Subpages
 
 - [x] `pletfale.html` — redesigned to mirror `index.html`'s section structure (bleed-video hero, work-style card grid, about-photo split, gallery) with the page's own blue theme, per request; now also has a "Cennik zajęć" pricing panel placed right after "Dla kogo są zajęcia" (see Pricing above). Still needs: real class schedule, group sizes.
-- [x] `przygotowanie-fizyczne.html` — prose content built (hero, offer, audience, CTA), dark/amber theme. Still needs: real pricing, session length, package options.
+- [x] `przygotowanie-fizyczne.html` — prose content built (hero, offer, audience, CTA), dark/amber theme. Still needs: real pricing, session length, package options (a placeholder "Cennik" section is in place, see Pricing).
 - [x] `fizjoterapia.html` — content built (text-only hero, "Co leczę" conditions list, "Jak wygląda wizyta" image+text split, CTA), violet theme. Still needs: confirm real treated-conditions list, real practice photo.
 
 ## Rename tracking

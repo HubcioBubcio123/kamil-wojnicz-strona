@@ -1,0 +1,67 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+// Plain cennik for Przygotowanie Fizyczne: one row per service, name and an optional
+// one-line description on the left, price on the right. Deliberately simpler than
+// Płetfale's pool-themed .pricing panel so the two pages don't share a layout.
+.price-list {
+  padding-block: $space-2xl;
+}
+
+.price-list__header {
+  max-width: 50ch;
+  margin-bottom: $space-xl;
+}
+
+.price-list__title {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.price-list__intro {
+  margin-top: $space-sm;
+  color: var(--color-text-muted);
+}
+
+.price-list__rows {
+  max-width: 48rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--color-border);
+}
+
+.price-list__row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  column-gap: $space-md;
+  row-gap: 0.25rem;
+  align-items: baseline;
+  padding-block: $space-md;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.price-list__name {
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.price-list__desc {
+  grid-column: 1;
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+.price-list__price {
+  grid-column: 2;
+  grid-row: 1;
+  color: var(--color-accent-text);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.price-list__cta {
+  margin-top: $space-xl;
+}

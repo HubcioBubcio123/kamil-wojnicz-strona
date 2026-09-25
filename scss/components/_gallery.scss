@@ -83,22 +83,6 @@
   aspect-ratio: 4 / 5;
 }
 
-// Horizontal scroll-snap variant, for pages with several training moments to browse.
-.gallery__scroll {
-  display: flex;
-  gap: $space-md;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  padding-bottom: $space-xs;
-  -webkit-overflow-scrolling: touch;
-}
-
-.gallery__scroll img {
-  flex: 0 0 clamp(220px, 30vw, 320px);
-  aspect-ratio: 3 / 4;
-  scroll-snap-align: start;
-}
-
 @include respond(md) {
   .gallery__grid {
     grid-template-columns: 1fr;

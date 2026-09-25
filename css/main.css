@@ -1027,21 +1027,6 @@ p {
   aspect-ratio: 4/5;
 }
 
-.gallery__scroll {
-  display: flex;
-  gap: 1.5rem;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  padding-bottom: 0.5rem;
-  -webkit-overflow-scrolling: touch;
-}
-
-.gallery__scroll img {
-  flex: 0 0 clamp(220px, 30vw, 320px);
-  aspect-ratio: 3/4;
-  scroll-snap-align: start;
-}
-
 @media (max-width: 768px) {
   .gallery__grid {
     grid-template-columns: 1fr;
@@ -1392,6 +1377,68 @@ p {
     animation-name: pricing-divider-flow-x;
   }
 }
+.price-list {
+  padding-block: 6rem;
+}
+
+.price-list__header {
+  max-width: 50ch;
+  margin-bottom: 4rem;
+}
+
+.price-list__title {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.price-list__intro {
+  margin-top: 1rem;
+  color: var(--color-text-muted);
+}
+
+.price-list__rows {
+  max-width: 48rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--color-border);
+}
+
+.price-list__row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  column-gap: 1.5rem;
+  row-gap: 0.25rem;
+  align-items: baseline;
+  padding-block: 1.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.price-list__name {
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.price-list__desc {
+  grid-column: 1;
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+.price-list__price {
+  grid-column: 2;
+  grid-row: 1;
+  color: var(--color-accent-text);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.price-list__cta {
+  margin-top: 4rem;
+}
+
 .contact {
   padding-block: 6rem;
   background: var(--color-bg);
