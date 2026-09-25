@@ -28,7 +28,7 @@ Tracks every placeholder currently in the site. Nothing here blocks the site fro
 
 - [x] `pletfale.html` "Cennik zajęć" section — real prices set. Zajęcia indywidualne: karnet 4x 30/45/60 min = 600/800/1100 zł, plus pojedyncza lekcja 30 min = 200 zł. Zajęcia dwuosobowe: karnet 4x 30/45/60 min = 400/550/700 zł per person. The asterisk note says prices don't include the pool entry ticket.
 - [ ] `pletfale.html` "Cennik zajęć" — confirm the intro sentence ("Dokładną cenę i terminy ustalamy indywidualnie...") and the 3 "Zajęcia dwuosobowe" feature bullets. Both are still draft copy; only the indywidualne bullets have been updated to real ones.
-- [ ] `przygotowanie-fizyczne.html` "Cennik" price list — all placeholder. 4 rows (Konsultacja i ocena, Trening indywidualny, Karnet 4 treningi, Karnet 8 treningów), every price "do ustalenia", intro and row descriptions are draft copy. Replace with the real services, session lengths and prices.
+- [ ] `przygotowanie-fizyczne.html` "Cennik" price list — all placeholder. 4 items (Konsultacja i ocena, Trening indywidualny, Karnet 4 treningi, Karnet 8 treningów), every price "do ustalenia", intro and item descriptions are draft copy. Replace with the real services, session lengths and prices.
 
 ## Content
 

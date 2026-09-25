@@ -1,15 +1,16 @@
 @use "../variables" as *;
 @use "../mixins" as *;
 
-// Plain cennik for Przygotowanie Fizyczne: one row per service, name and an optional
-// one-line description on the left, price on the right. Deliberately simpler than
-// Płetfale's pool-themed .pricing panel so the two pages don't share a layout.
+// Cennik for Przygotowanie Fizyczne. Speaks the same language as the page's process
+// steps (hairline top rule, bold Outfit title, amber Outfit figure, muted line) so it
+// reads as part of this page, and stays deliberately plainer than Płetfale's
+// pool-themed .pricing panel. The price is the one loud element per item.
 .price-list {
   padding-block: $space-2xl;
 }
 
 .price-list__header {
-  max-width: 50ch;
+  max-width: 42ch;
   margin-bottom: $space-xl;
 }
 
@@ -22,49 +23,61 @@
 .price-list__intro {
   margin-top: $space-sm;
   color: var(--color-text-muted);
+  font-size: 1.05rem;
 }
 
-.price-list__rows {
-  max-width: 48rem;
+.price-list__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $space-lg;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.price-list__row {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  column-gap: $space-md;
-  row-gap: 0.25rem;
-  align-items: baseline;
-  padding: $space-md 0;
-  border-bottom: 1px solid var(--color-border);
-}
-
-.price-list__row:first-child {
+.price-list__item {
+  padding-top: $space-md;
   border-top: 1px solid var(--color-border);
 }
 
 .price-list__name {
   font-size: 1.15rem;
-  font-weight: 600;
-}
-
-.price-list__desc {
-  grid-column: 1;
-  margin: 0;
-  color: var(--color-text-muted);
-  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.25;
 }
 
 .price-list__price {
-  grid-column: 2;
-  grid-row: 1;
-  color: var(--color-accent-text);
+  display: block;
+  margin-top: $space-sm;
+  font-family: $font-heading;
   font-weight: 700;
-  white-space: nowrap;
+  font-size: clamp(1.75rem, 2.4vw, 2.25rem);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-accent-text);
+}
+
+.price-list__desc {
+  margin: $space-xs 0 0;
+  color: var(--color-text-muted);
+  font-size: 0.98rem;
+  line-height: 1.6;
 }
 
 .price-list__cta {
   margin-top: $space-xl;
+}
+
+@include respond(lg) {
+  .price-list__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@include respond(md) {
+  .price-list__grid {
+    grid-template-columns: 1fr;
+    gap: $space-md;
+  }
 }
