@@ -26,7 +26,8 @@ Tracks every placeholder currently in the site. Nothing here blocks the site fro
 
 ## Pricing
 
-- [ ] `pletfale.html` "Cennik zajęć" section — 2 tiers (indywidualne / dwuosobowe), each with a 30/45/60 min duration toggle. Every duration button's `data-price` is still the placeholder "do ustalenia" (identical across all 3, per tier) — replace each with its own real amount once pricing is set, and confirm whether the 2 tiers/features match what's actually offered.
+- [x] `pletfale.html` "Cennik zajęć" section — real prices set. Zajęcia indywidualne: karnet 4x 30/45/60 min = 600/800/1100 zł, plus pojedyncza lekcja 30 min = 200 zł. Zajęcia dwuosobowe: karnet 4x 30/45/60 min = 400/550/700 zł per person. The asterisk note says prices don't include the pool entry ticket.
+- [ ] `pletfale.html` "Cennik zajęć" — confirm the intro sentence ("Dokładną cenę i terminy ustalamy indywidualnie...") and the 3 "Zajęcia dwuosobowe" feature bullets. Both are still draft copy; only the indywidualne bullets have been updated to real ones.
 
 ## Content
 
@@ -36,7 +37,7 @@ Tracks every placeholder currently in the site. Nothing here blocks the site fro
 
 ## Subpages
 
-- [x] `pletfale.html` — redesigned to mirror `index.html`'s section structure (bleed-video hero, work-style card grid, about-photo split, gallery) with the page's own blue theme, per request; now also has a "Cennik zajęć" pricing panel placed right after "Dla kogo są zajęcia" (see Pricing above). Still needs: real class schedule, group sizes, real prices.
+- [x] `pletfale.html` — redesigned to mirror `index.html`'s section structure (bleed-video hero, work-style card grid, about-photo split, gallery) with the page's own blue theme, per request; now also has a "Cennik zajęć" pricing panel placed right after "Dla kogo są zajęcia" (see Pricing above). Still needs: real class schedule, group sizes.
 - [x] `przygotowanie-fizyczne.html` — prose content built (hero, offer, audience, CTA), dark/amber theme. Still needs: real pricing, session length, package options.
 - [x] `fizjoterapia.html` — content built (text-only hero, "Co leczę" conditions list, "Jak wygląda wizyta" image+text split, CTA), violet theme. Still needs: confirm real treated-conditions list, real practice photo.
 
