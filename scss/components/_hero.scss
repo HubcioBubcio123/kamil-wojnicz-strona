@@ -128,6 +128,17 @@
   z-index: 0;
   width: 100%;
   height: 100%;
+  // Holds the poster photo when main.js hides a video the browser won't play.
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+// iOS Safari draws a play button over a video it won't autoplay (e.g. in Low Power Mode).
+// The hero video is decoration, so never show that button; main.js swaps in the poster.
+.hero__video::-webkit-media-controls-start-playback-button {
+  display: none !important;
+  -webkit-appearance: none;
 }
 
 .hero--bleed .hero__media::after {
