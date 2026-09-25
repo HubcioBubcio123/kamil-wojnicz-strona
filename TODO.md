@@ -15,7 +15,7 @@ Tracks every placeholder currently in the site. Nothing here blocks the site fro
 - [ ] `pletfale.html` "Z basenu" gallery — 1 of 3 stock placeholders replaced (`kamil-wojnicz-basen.webp`); 2 remain, replace with real Płetfale class photos, save as `.webp`
 - [x] `przygotowanie-fizyczne.html` "Z sali" gallery — removed per request; a placeholder "Cennik" price list sits in its place (see Pricing).
 - [ ] `fizjoterapia.html` "Ruch i regeneracja" gallery — replace 2 stock placeholders with real photos, save as `.webp`
-- [x] `przygotowanie-fizyczne.html` process steps — 3 real photos of Kamil from `KamilGoogleDISC/` (HEIC originals copied to `assets/source/KamilPhotos/`), cropped to 4:3 and saved as `.webp` in `assets/img/przygotowanie-fizyczne/`.
+- [x] `przygotowanie-fizyczne.html` process steps — 3 real photos of Kamil, cropped to 4:3 and saved as `.webp` in `assets/img/przygotowanie-fizyczne/`. Steps 1-2 come from `KamilGoogleDISC/` (HEIC originals copied to `assets/source/KamilPhotos/`); step 3 is a portrait the user sent directly (`assets/source/KamilPhotos/KamilBoxSit.jpg`), which replaced the squat-rack photo.
 - [ ] `fizjoterapia.html` "Co leczę" aside — replace stock placeholder with a real photo, save as `.webp`
 
 ## SEO
