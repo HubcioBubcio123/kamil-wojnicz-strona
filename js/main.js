@@ -73,8 +73,11 @@
     var card = video.closest(".work__card");
     if (!card) return;
 
+    // Rest on the src's #t= start time when it has one (e.g. to skip a fade-in from black).
+    var start = parseFloat((video.getAttribute("src") || "").split("#t=")[1]) || 0;
+
     video.addEventListener("loadeddata", function () {
-      video.currentTime = 0;
+      video.currentTime = start;
     });
 
     function play() {
@@ -82,7 +85,7 @@
     }
     function stop() {
       video.pause();
-      video.currentTime = 0;
+      video.currentTime = start;
     }
 
     card.addEventListener("mouseenter", play);
